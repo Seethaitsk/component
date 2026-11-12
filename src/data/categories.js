@@ -1,0 +1,73 @@
+export const categories = [
+  {
+    slug: 'buttons',
+    name: 'Buttons',
+    description: 'Call-to-action, icon buttons, group buttons, and loading states for user interactions.',
+    icon: 'MousePointerClick',
+    color: 'from-blue-500 to-indigo-600',
+  },
+  {
+    slug: 'forms',
+    name: 'Forms & Inputs',
+    description: 'Text inputs, select boxes, checkboxes, textareas, and validated input groups.',
+    icon: 'TextCursorInput',
+    color: 'from-emerald-500 to-teal-600',
+  },
+  {
+    slug: 'navigation',
+    name: 'Navigation',
+    description: 'Header navbars, breadcrumbs, pagination, sidebar menus, and mobile drawers.',
+    icon: 'Compass',
+    color: 'from-violet-500 to-purple-600',
+  },
+  {
+    slug: 'cards',
+    name: 'Cards',
+    description: 'Content containers, media cards, interactive feature highlights, and pricing cards.',
+    icon: 'Layers',
+    color: 'from-amber-500 to-orange-600',
+  },
+  {
+    slug: 'modals',
+    name: 'Modals & Overlays',
+    description: 'Dialogs, confirm popups, slide-out panels, and focus-trapped interactive overlays.',
+    icon: 'AppWindow',
+    color: 'from-sky-500 to-cyan-600',
+  },
+  {
+    slug: 'tables',
+    name: 'Data Tables',
+    description: 'Tabular data layouts with sortable columns, responsive horizontal scrolling, and pagination.',
+    icon: 'Table',
+    color: 'from-rose-500 to-pink-600',
+  },
+  {
+    slug: 'alerts',
+    name: 'Alerts & Feedback',
+    description: 'Notification banners, inline toast messages, badges, and system status indicators.',
+    icon: 'AlertCircle',
+    color: 'from-yellow-500 to-amber-600',
+  },
+  {
+    slug: 'layout',
+    name: 'Layout',
+    description: 'Containers, footers, grid wrappers, hero layouts, and page frame primitives.',
+    icon: 'LayoutTemplate',
+    color: 'from-slate-600 to-slate-800',
+  },
+  {
+    slug: 'gallery',
+    name: 'Gallery / Carousel',
+    description: 'Image showcases, multi-slide hero banners, lightbox previews, and thumbnail carousels.',
+    icon: 'Images',
+    color: 'from-fuchsia-500 to-pink-600',
+  },
+  {
+    slug: 'game-betting',
+    name: 'Game / Betting UI',
+    description: 'Live odds cards, bet slips, scoreboards, probability indicators, and gaming chips.',
+    icon: 'Dice5',
+    color: 'from-indigo-600 to-blue-700',
+  },
+];
+
