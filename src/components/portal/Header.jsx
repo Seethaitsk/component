@@ -36,21 +36,21 @@ export default function Header({ onMobileMenuToggle }) {
             <Image
               src="/syscorp-logo-light.png"
               alt="SysCorp"
-              width={158}
-              height={36}
+              width={176}
+              height={40}
               priority
               style={{ width: 'auto', height: 'auto' }}
-              className="h-8 sm:h-9 w-auto dark:hidden transition-transform group-hover:scale-[1.02]"
+              className="h-9 sm:h-10 w-auto dark:hidden transition-transform group-hover:scale-[1.02]"
             />
             {/* SysCorp Logo (Dark Mode) */}
             <Image
               src="/syscorp-logo-dark.png"
               alt="SysCorp"
-              width={158}
-              height={36}
+              width={176}
+              height={40}
               priority
               style={{ width: 'auto', height: 'auto' }}
-              className="h-8 sm:h-9 w-auto hidden dark:block transition-transform group-hover:scale-[1.02]"
+              className="h-9 sm:h-10 w-auto hidden dark:block transition-transform group-hover:scale-[1.02]"
             />
           </Link>
         </div>
