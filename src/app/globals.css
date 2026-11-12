@@ -1,5 +1,52 @@
 @import "tailwindcss";
 
+@theme {
+  /* SysCorp Official Brand Blue Tokens */
+  --color-brand-50:  #eef3fc;
+  --color-brand-100: #dbe6fb;
+  --color-brand-200: #bfd3f8;
+  --color-brand-300: #93b9f4;
+  --color-brand-400: #5b8def;
+  --color-brand-500: #3b6ff0;
+  --color-brand-600: #2158d9;
+  --color-brand-700: #1b47b3;
+  --color-brand-800: #193c94;
+  --color-brand-900: #152d6a;
+  --color-brand-950: #0d1a3c;
+
+  /* SysCorp Official Dark Navy Tokens */
+  --color-navy-950: #090c16;
+  --color-navy-900: #0d1220;
+  --color-navy-800: #151b2e;
+  --color-navy-700: #222a42;
+
+  /* Align all indigo classes to SysCorp Brand Blue */
+  --color-indigo-50:  #eef3fc;
+  --color-indigo-100: #dbe6fb;
+  --color-indigo-200: #bfd3f8;
+  --color-indigo-300: #93b9f4;
+  --color-indigo-400: #5b8def;
+  --color-indigo-500: #3b6ff0;
+  --color-indigo-600: #2158d9;
+  --color-indigo-700: #1b47b3;
+  --color-indigo-800: #193c94;
+  --color-indigo-900: #152d6a;
+  --color-indigo-950: #0d1a3c;
+
+  /* Align all violet classes to SysCorp Cyan / Sky Accent */
+  --color-violet-50:  #f0f7ff;
+  --color-violet-100: #e0effe;
+  --color-violet-200: #bae0fd;
+  --color-violet-300: #7cc5fb;
+  --color-violet-400: #38a7f7;
+  --color-violet-500: #0e8ce9;
+  --color-violet-600: #0270c7;
+  --color-violet-700: #035aa2;
+  --color-violet-800: #074c85;
+  --color-violet-900: #0c406e;
+  --color-violet-950: #082849;
+}
+
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;

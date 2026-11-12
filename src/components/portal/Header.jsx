@@ -31,7 +31,7 @@ export default function Header({ onMobileMenuToggle }) {
             <Menu className="h-5 w-5" />
           </button>
 
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center group py-1" aria-label="SysCorp Home">
             {/* SysCorp Logo (Light Mode) */}
             <Image
               src="/syscorp-logo-light.png"
@@ -50,16 +50,6 @@ export default function Header({ onMobileMenuToggle }) {
               priority
               className="h-8 sm:h-9 w-auto hidden dark:block transition-transform group-hover:scale-[1.02]"
             />
-
-            <div className="hidden sm:flex flex-col border-l border-slate-200 dark:border-slate-800 pl-3">
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs font-bold text-slate-900 dark:text-white tracking-tight">UI Portal</span>
-                <span className="text-[9px] uppercase font-bold px-1.5 py-0.2 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
-                  v2.0
-                </span>
-              </div>
-              <p className="text-[10px] text-slate-400 font-medium">Team Component Library</p>
-            </div>
           </Link>
         </div>
 

@@ -19,7 +19,7 @@ export default function HomePage() {
         <div className="max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full bg-indigo-500/20 border border-indigo-400/30 px-3.5 py-1 text-xs font-semibold text-indigo-300">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Internal Engineering Library</span>
+            <span>SysCorp Engineering Library</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
