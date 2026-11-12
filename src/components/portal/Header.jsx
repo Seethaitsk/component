@@ -39,6 +39,7 @@ export default function Header({ onMobileMenuToggle }) {
               width={158}
               height={36}
               priority
+              style={{ width: 'auto', height: 'auto' }}
               className="h-8 sm:h-9 w-auto dark:hidden transition-transform group-hover:scale-[1.02]"
             />
             {/* SysCorp Logo (Dark Mode) */}
@@ -48,6 +49,7 @@ export default function Header({ onMobileMenuToggle }) {
               width={158}
               height={36}
               priority
+              style={{ width: 'auto', height: 'auto' }}
               className="h-8 sm:h-9 w-auto hidden dark:block transition-transform group-hover:scale-[1.02]"
             />
           </Link>
