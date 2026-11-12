@@ -636,5 +636,28 @@ export default function Example() {
 </div>`,
     },
   },
+  {
+    id: 'badge',
+    name: 'Badge',
+    category: 'buttons',
+    description: 'Reusable Badge component designed for modern web applications.',
+    tags: ['badge', 'buttons', 'ui'],
+    tech: ['React', 'Tailwind', 'Bootstrap'],
+    status: 'new',
+    dateAdded: '2026-11-12',
+    projectsUsedIn: ['Internal App'],
+    usageNotes: [
+      'Import directly from @/components/library/Badge',
+      'Ensure accessible labeling when using custom children',
+    ],
+    props: [
+      { name: 'className', type: 'string', default: "''", description: 'Additional CSS classes.' },
+      { name: 'children', type: 'ReactNode', default: 'undefined', description: 'Component content.' },
+    ],
+    code: {
+      react: `<Badge>Badge Action</Badge>`,
+      htmlCss: `<div class="inline-flex items-center px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-semibold">Badge Action</div>`,
+      bootstrap: `<div class="badge bg-primary p-2">Badge Action</div>`,
+    },
+  },
 ];
-

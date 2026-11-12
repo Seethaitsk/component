@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "new:component": "node scripts/new-component.mjs"
   },
   "dependencies": {
     "bootstrap": "^5.3.9",

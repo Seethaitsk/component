@@ -12,6 +12,7 @@ import ImageGallery from './ImageGallery';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import OddsCard from './OddsCard';
+import Badge from './Badge';
 
 export default function ComponentRenderer({
   componentId,
@@ -25,6 +26,9 @@ export default function ComponentRenderer({
   // Compact, non-nested thumbnail previews for cards
   if (isThumbnail) {
     switch (componentId) {
+      case 'badge':
+        return <Badge>Badge</Badge>;
+
       case 'primary-button':
         return (
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -185,6 +189,13 @@ export default function ComponentRenderer({
 
   // Full Interactive React + Tailwind Mode (used on Component Detail Page)
   switch (componentId) {
+    case 'badge':
+      return (
+        <div className="flex items-center justify-center p-6">
+          <Badge>Active Badge</Badge>
+        </div>
+      );
+
     case 'primary-button':
       return (
         <div className="flex flex-wrap items-center justify-center gap-3 p-6">
