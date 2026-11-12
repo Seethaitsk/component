@@ -16,6 +16,7 @@ import {
   Dice5,
   Home,
   Search,
+  PlusCircle,
   Code2,
   X,
 } from 'lucide-react';
@@ -92,6 +93,19 @@ export default function Sidebar({ open, onClose }) {
               >
                 <Home className="h-4 w-4" />
                 <span>Portal Home</span>
+              </Link>
+
+              <Link
+                href="/new"
+                onClick={onClose}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/new'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <PlusCircle className="h-4 w-4 text-[#5b8def]" />
+                <span>Create Component</span>
               </Link>
 
               <Link

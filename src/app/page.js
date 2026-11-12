@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2 } from 'lucide-react';
+import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
 import CategoryCard from '@/components/portal/CategoryCard';
@@ -33,24 +33,34 @@ export default function HomePage() {
             Browse, preview, and copy production-tested components across React, Tailwind CSS, and Bootstrap 5 with responsive previews and accessible props tables.
           </p>
 
-          {/* Quick Search on Hero */}
-          <form action="/search" method="GET" className="pt-2 max-w-lg">
-            <div className="relative flex items-center">
-              <Search className="absolute left-4 h-4 w-4 text-slate-400" />
-              <input
-                type="search"
-                name="q"
-                placeholder="Find a component (e.g. Button, modal, table, navbar)..."
-                className="w-full rounded-2xl border border-slate-300 bg-white py-3.5 pl-11 pr-24 text-sm text-slate-800 placeholder:text-slate-400 shadow-xs outline-none focus:border-[#1a5cdd] focus:ring-2 focus:ring-blue-100"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 rounded-xl bg-[#1a5cdd] px-4 py-2 text-xs font-bold text-white hover:bg-[#1449b2] transition-colors cursor-pointer shadow-xs"
-              >
-                Search
-              </button>
-            </div>
-          </form>
+          {/* Quick Search & Create Component Action */}
+          <div className="pt-2 flex flex-wrap items-center gap-3">
+            <form action="/search" method="GET" className="flex-1 min-w-[260px] max-w-lg">
+              <div className="relative flex items-center">
+                <Search className="absolute left-4 h-4 w-4 text-slate-400" />
+                <input
+                  type="search"
+                  name="q"
+                  placeholder="Find a component (e.g. Button, modal, table)..."
+                  className="w-full rounded-2xl border border-slate-300 bg-white py-3 pl-11 pr-24 text-sm text-slate-800 placeholder:text-slate-400 shadow-xs outline-none focus:border-[#1a5cdd] focus:ring-2 focus:ring-blue-100"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-2 rounded-xl bg-[#1a5cdd] px-4 py-1.5 text-xs font-bold text-white hover:bg-[#1449b2] transition-colors cursor-pointer shadow-xs"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+
+            <Link
+              href="/new"
+              className="inline-flex items-center gap-2 rounded-2xl border border-blue-200 bg-white px-4 py-3 text-xs font-bold text-[#1a5cdd] hover:bg-blue-50 transition-colors shadow-xs"
+            >
+              <PlusCircle className="h-4 w-4 text-[#1a5cdd]" />
+              <span>Create Component</span>
+            </Link>
+          </div>
         </div>
 
         {/* Stats Row */}
