@@ -44,26 +44,26 @@ async function CategoryContent({ params }) {
     <div className="space-y-8">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500">
-        <Link href="/" className="hover:text-indigo-600 transition-colors">
+        <Link href="/" className="hover:text-[#1a5cdd] transition-colors">
           Portal Home
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
-        <span className="font-semibold text-slate-900 dark:text-white">{category.name}</span>
+        <span className="font-semibold text-slate-900">{category.name}</span>
       </nav>
 
       {/* Category Header */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900 shadow-xs space-y-3">
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs space-y-3">
         <div className="flex items-center gap-3">
-          <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+          <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-[#1a5cdd]">
             {categoryComponents.length} {categoryComponents.length === 1 ? 'Component' : 'Components'}
           </span>
           <span className="text-xs text-slate-400">Category Catalog</span>
         </div>
 
-        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
           {category.name}
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+        <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
           {category.description}
         </p>
       </div>

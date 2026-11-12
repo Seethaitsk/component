@@ -56,18 +56,18 @@ export default function Sidebar({ open, onClose }) {
       {/* Sidebar Panel */}
       <aside
         aria-label="Component categories"
-        className={`fixed inset-y-0 left-0 z-40 w-64 shrink-0 border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col transition-transform duration-200 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-64 shrink-0 border-r border-slate-200 bg-white flex flex-col transition-transform duration-200 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:translate-x-0 ${
           open ? 'translate-x-0 shadow-2xl' : '-translate-x-full'
         }`}
       >
         {/* Mobile Header */}
-        <div className="flex h-16 items-center justify-between px-6 border-b border-slate-100 dark:border-slate-800 lg:hidden shrink-0">
-          <span className="font-bold text-slate-900 dark:text-white">Categories</span>
+        <div className="flex h-16 items-center justify-between px-6 border-b border-slate-100 lg:hidden shrink-0">
+          <span className="font-bold text-slate-900">Categories</span>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close sidebar"
-            className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100"
           >
             <X className="h-5 w-5" />
           </button>
@@ -86,8 +86,8 @@ export default function Sidebar({ open, onClose }) {
                 onClick={onClose}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
                   pathname === '/'
-                    ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200'
+                    ? 'bg-blue-50 text-[#1a5cdd]'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-[#1a5cdd]'
                 }`}
               >
                 <Home className="h-4 w-4" />
@@ -99,8 +99,8 @@ export default function Sidebar({ open, onClose }) {
                 onClick={onClose}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
                   pathname === '/search'
-                    ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200'
+                    ? 'bg-blue-50 text-[#1a5cdd]'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-[#1a5cdd]'
                 }`}
               >
                 <Search className="h-4 w-4" />
@@ -112,7 +112,7 @@ export default function Sidebar({ open, onClose }) {
           {/* Categories List */}
           <div>
             <div className="flex items-center justify-between px-3 mb-2">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
                 Categories
               </p>
               <span className="text-[10px] font-mono text-slate-400">{categories.length}</span>
@@ -131,19 +131,19 @@ export default function Sidebar({ open, onClose }) {
                     onClick={onClose}
                     className={`flex items-center justify-between rounded-xl px-3 py-2 text-xs font-medium transition-colors ${
                       isActive
-                        ? 'bg-indigo-600 text-white shadow-xs'
-                        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200'
+                        ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                        : 'text-slate-600 hover:bg-slate-50 hover:text-[#1a5cdd]'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 truncate">
-                      <Icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-400 dark:text-slate-500'}`} />
+                      <Icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-400'}`} />
                       <span className="truncate">{cat.name}</span>
                     </div>
                     <span
                       className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
                         isActive
                           ? 'bg-white/20 text-white'
-                          : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
+                          : 'bg-slate-100 text-slate-500'
                       }`}
                     >
                       {count}
@@ -163,21 +163,21 @@ export default function Sidebar({ open, onClose }) {
               <Link
                 href="/search?tech=React"
                 onClick={onClose}
-                className="flex items-center justify-between rounded-xl px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/60"
+                className="flex items-center justify-between rounded-xl px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#1a5cdd]"
               >
                 <span>React + Tailwind</span>
-                <span className="text-[10px] font-mono text-indigo-600 font-bold">100%</span>
+                <span className="text-[10px] font-mono text-[#1a5cdd] font-bold">100%</span>
               </Link>
               <Link
                 href="/search?tech=Bootstrap"
                 onClick={onClose}
-                className="flex items-center justify-between rounded-xl px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/60"
+                className="flex items-center justify-between rounded-xl px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#1a5cdd]"
               >
                 <div className="flex items-center gap-1.5">
-                  <Code2 className="h-3.5 w-3.5 text-violet-600" />
+                  <Code2 className="h-3.5 w-3.5 text-[#1a5cdd]" />
                   <span>Bootstrap 5</span>
                 </div>
-                <span className="text-[10px] font-bold bg-violet-50 text-violet-700 px-1.5 py-0.5 rounded dark:bg-violet-950 dark:text-violet-300">
+                <span className="text-[10px] font-bold bg-blue-50 text-[#1a5cdd] px-1.5 py-0.5 rounded">
                   Ready
                 </span>
               </Link>
@@ -186,8 +186,8 @@ export default function Sidebar({ open, onClose }) {
         </div>
 
         {/* Footer info */}
-        <div className="border-t border-slate-100 dark:border-slate-800 p-4 text-[11px] text-slate-400 shrink-0">
-          <p className="font-semibold text-slate-600 dark:text-slate-300">Internal Library</p>
+        <div className="border-t border-slate-100 p-4 text-[11px] text-slate-400 shrink-0">
+          <p className="font-semibold text-slate-700">SysCorp Library</p>
           <p className="mt-0.5">Updated: Nov 2026</p>
         </div>
       </aside>

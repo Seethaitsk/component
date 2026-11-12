@@ -47,19 +47,19 @@ async function ComponentDetailContent({ params }) {
     <div className="space-y-10">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500">
-        <Link href="/" className="hover:text-indigo-600 transition-colors">
+        <Link href="/" className="hover:text-[#1a5cdd] transition-colors">
           Portal Home
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
         {category && (
           <>
-            <Link href={`/category/${category.slug}`} className="hover:text-indigo-600 transition-colors">
+            <Link href={`/category/${category.slug}`} className="hover:text-[#1a5cdd] transition-colors">
               {category.name}
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
           </>
         )}
-        <span className="font-semibold text-slate-900 dark:text-white">{component.name}</span>
+        <span className="font-semibold text-slate-900">{component.name}</span>
       </nav>
 
       {/* Header Info */}
@@ -68,7 +68,7 @@ async function ComponentDetailContent({ params }) {
           {category && (
             <Link
               href={`/category/${category.slug}`}
-              className="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 dark:bg-indigo-950/60 dark:text-indigo-300 px-3 py-1 rounded-full"
+              className="text-xs font-bold uppercase tracking-wider text-[#1a5cdd] bg-blue-50 px-3 py-1 rounded-full"
             >
               {category.name}
             </Link>

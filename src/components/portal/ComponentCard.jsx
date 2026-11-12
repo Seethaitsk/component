@@ -16,16 +16,16 @@ export default function ComponentCard({ component }) {
   return (
     <div
       onClick={handleCardClick}
-      className="group cursor-pointer flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-500/50"
+      className="group cursor-pointer flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#1a5cdd]/50 hover:shadow-md"
     >
       <div className="space-y-4">
         {/* Header: Name, Category, Arrow */}
         <div className="flex items-start justify-between gap-3">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-full">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#1a5cdd] bg-blue-50 px-2.5 py-0.5 rounded-full">
               {component.category}
             </span>
-            <h3 className="mt-2 text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+            <h3 className="mt-2 text-base font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
               <Link
                 href={`/component/${component.id}`}
                 onClick={(e) => e.stopPropagation()}
@@ -39,14 +39,14 @@ export default function ComponentCard({ component }) {
             href={`/component/${component.id}`}
             onClick={(e) => e.stopPropagation()}
             aria-label={`View ${component.name}`}
-            className="rounded-full p-1 text-slate-400 group-hover:text-indigo-600 transition-colors"
+            className="rounded-full p-1 text-slate-400 group-hover:text-[#1a5cdd] transition-colors"
           >
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
         {/* Live Preview Miniature Box */}
-        <div className="relative aspect-video w-full rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 overflow-hidden flex items-center justify-center p-3 select-none">
+        <div className="relative aspect-video w-full rounded-xl bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center p-3 select-none">
           <div className="w-full flex items-center justify-center">
             <ComponentRenderer
               componentId={component.id}
