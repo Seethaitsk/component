@@ -34,7 +34,7 @@ export default function Header({ onMobileMenuToggle }) {
           <Link href="/" className="flex items-center group py-1" aria-label="SysCorp Home">
             {/* SysCorp Logo (Light Mode) */}
             <Image
-              src="/syscorp-logo-light.png"
+              src="/syscorp-logo-portal.png"
               alt="SysCorp"
               width={176}
               height={40}
