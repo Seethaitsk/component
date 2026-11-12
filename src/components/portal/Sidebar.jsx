@@ -18,7 +18,6 @@ import {
   Search,
   Code2,
   X,
-  ExternalLink,
 } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
@@ -57,12 +56,12 @@ export default function Sidebar({ open, onClose }) {
       {/* Sidebar Panel */}
       <aside
         aria-label="Component categories"
-        className={`fixed inset-y-0 left-0 z-40 w-64 border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col transition-transform duration-200 lg:static lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-64 border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col transition-transform duration-200 lg:sticky lg:top-20 lg:h-[calc(100vh-6rem)] lg:rounded-2xl lg:border lg:border-slate-200 lg:dark:border-slate-800 lg:shadow-xs lg:translate-x-0 ${
           open ? 'translate-x-0 shadow-2xl' : '-translate-x-full'
         }`}
       >
         {/* Mobile Header */}
-        <div className="flex h-16 items-center justify-between px-6 border-b border-slate-100 dark:border-slate-800 lg:hidden">
+        <div className="flex h-16 items-center justify-between px-6 border-b border-slate-100 dark:border-slate-800 lg:hidden shrink-0">
           <span className="font-bold text-slate-900 dark:text-white">Categories</span>
           <button
             type="button"
@@ -75,7 +74,7 @@ export default function Sidebar({ open, onClose }) {
         </div>
 
         {/* Navigation Content */}
-        <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
+        <div className="flex-1 overflow-y-auto px-4 py-5 space-y-6 pb-12">
           {/* Main Navigation */}
           <div>
             <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
@@ -187,7 +186,7 @@ export default function Sidebar({ open, onClose }) {
         </div>
 
         {/* Footer info */}
-        <div className="border-t border-slate-100 dark:border-slate-800 p-4 text-[11px] text-slate-400">
+        <div className="border-t border-slate-100 dark:border-slate-800 p-4 text-[11px] text-slate-400 shrink-0">
           <p className="font-semibold text-slate-600 dark:text-slate-300">Internal Library</p>
           <p className="mt-0.5">Updated: Nov 2026</p>
         </div>
@@ -195,4 +194,3 @@ export default function Sidebar({ open, onClose }) {
     </>
   );
 }
-

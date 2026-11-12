@@ -2,14 +2,21 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Code2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { ArrowUpRight } from 'lucide-react';
 import ComponentRenderer from '@/components/library/ComponentRenderer';
 
 export default function ComponentCard({ component }) {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/component/${component.id}`);
+  };
+
   return (
-    <Link
-      href={`/component/${component.id}`}
-      className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-500/50"
+    <div
+      onClick={handleCardClick}
+      className="group cursor-pointer flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-500/50"
     >
       <div className="space-y-4">
         {/* Header: Name, Category, Arrow */}
@@ -19,18 +26,33 @@ export default function ComponentCard({ component }) {
               {component.category}
             </span>
             <h3 className="mt-2 text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-              {component.name}
+              <Link
+                href={`/component/${component.id}`}
+                onClick={(e) => e.stopPropagation()}
+                className="hover:underline focus:outline-none"
+              >
+                {component.name}
+              </Link>
             </h3>
           </div>
-          <span className="rounded-full p-1 text-slate-400 group-hover:text-indigo-600 transition-colors">
+          <Link
+            href={`/component/${component.id}`}
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`View ${component.name}`}
+            className="rounded-full p-1 text-slate-400 group-hover:text-indigo-600 transition-colors"
+          >
             <ArrowUpRight className="h-4 w-4" />
-          </span>
+          </Link>
         </div>
 
         {/* Live Preview Miniature Box */}
-        <div className="relative aspect-video w-full rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 overflow-hidden flex items-center justify-center p-2 pointer-events-none select-none">
-          <div className="scale-75 origin-center w-full max-w-full">
-            <ComponentRenderer componentId={component.id} previewMode="react" />
+        <div className="relative aspect-video w-full rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 overflow-hidden flex items-center justify-center p-3 select-none">
+          <div className="w-full flex items-center justify-center">
+            <ComponentRenderer
+              componentId={component.id}
+              isThumbnail={true}
+              previewMode="react"
+            />
           </div>
         </div>
 
@@ -61,7 +83,6 @@ export default function ComponentCard({ component }) {
           Used in {component.projectsUsedIn.length} projects
         </span>
       </div>
-    </Link>
+    </div>
   );
 }
-
