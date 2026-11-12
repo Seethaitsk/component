@@ -2,7 +2,7 @@ import "./globals.css";
 import PortalShell from "@/components/portal/PortalShell";
 
 export const metadata = {
-  title: "UI Components Portal | Internal Engineering Library",
+  title: "SysCorp UI Portal | Internal Engineering Library",
   description: "Internal design system and reusable component catalog across web platforms",
 };
 

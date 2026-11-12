@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Search, Layers, Compass, Code2, Menu, X, Sparkles } from 'lucide-react';
+import { Search, Compass, Code2, Menu, X, Sparkles } from 'lucide-react';
 
 export default function Header({ onMobileMenuToggle }) {
   const [query, setQuery] = useState('');
@@ -30,18 +31,34 @@ export default function Header({ onMobileMenuToggle }) {
             <Menu className="h-5 w-5" />
           </button>
 
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-              <Layers className="h-5 w-5" />
-            </span>
-            <div>
-              <span className="font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5">
-                <span>UI Portal</span>
-                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+          <Link href="/" className="flex items-center gap-3 group">
+            {/* SysCorp Logo (Light Mode) */}
+            <Image
+              src="/syscorp-logo-light.png"
+              alt="SysCorp"
+              width={158}
+              height={36}
+              priority
+              className="h-8 sm:h-9 w-auto dark:hidden transition-transform group-hover:scale-[1.02]"
+            />
+            {/* SysCorp Logo (Dark Mode) */}
+            <Image
+              src="/syscorp-logo-dark.png"
+              alt="SysCorp"
+              width={158}
+              height={36}
+              priority
+              className="h-8 sm:h-9 w-auto hidden dark:block transition-transform group-hover:scale-[1.02]"
+            />
+
+            <div className="hidden sm:flex flex-col border-l border-slate-200 dark:border-slate-800 pl-3">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-bold text-slate-900 dark:text-white tracking-tight">UI Portal</span>
+                <span className="text-[9px] uppercase font-bold px-1.5 py-0.2 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
                   v2.0
                 </span>
-              </span>
-              <p className="text-[10px] text-slate-400 font-medium hidden sm:block">Team Component Library</p>
+              </div>
+              <p className="text-[10px] text-slate-400 font-medium">Team Component Library</p>
             </div>
           </Link>
         </div>
