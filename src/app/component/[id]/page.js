@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Calendar, Tag, FolderGit2, CheckCircle, Info } from 'lucide-react';
@@ -16,7 +16,21 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function ComponentDetailPage({ params }) {
+function ComponentDetailSkeleton() {
+  return (
+    <div className="space-y-10 animate-pulse">
+      <div className="h-4 w-40 bg-slate-200 dark:bg-slate-800 rounded"></div>
+      <div className="space-y-3">
+        <div className="h-6 w-32 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+        <div className="h-10 w-64 bg-slate-200 dark:bg-slate-800 rounded"></div>
+        <div className="h-4 w-96 bg-slate-200 dark:bg-slate-800 rounded"></div>
+      </div>
+      <div className="h-80 rounded-2xl bg-slate-100 dark:bg-slate-800/60"></div>
+    </div>
+  );
+}
+
+async function ComponentDetailContent({ params }) {
   const { id } = await params;
   const component = componentsData.find((c) => c.id === id);
 
@@ -170,6 +184,14 @@ export default async function ComponentDetailPage({ params }) {
         </section>
       )}
     </div>
+  );
+}
+
+export default function ComponentDetailPage({ params }) {
+  return (
+    <Suspense fallback={<ComponentDetailSkeleton />}>
+      <ComponentDetailContent params={params} />
+    </Suspense>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Layers, ArrowLeft } from 'lucide-react';
@@ -13,7 +13,24 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function CategoryPage({ params }) {
+function CategorySkeleton() {
+  return (
+    <div className="space-y-8 animate-pulse">
+      <div className="h-4 w-32 bg-slate-200 dark:bg-slate-800 rounded"></div>
+      <div className="rounded-2xl border border-slate-200 bg-white p-8 dark:border-slate-800 dark:bg-slate-900 space-y-4">
+        <div className="h-6 w-24 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+        <div className="h-8 w-48 bg-slate-200 dark:bg-slate-800 rounded"></div>
+        <div className="h-4 w-96 bg-slate-200 dark:bg-slate-800 rounded"></div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="h-64 rounded-2xl bg-slate-100 dark:bg-slate-800/50"></div>
+        <div className="h-64 rounded-2xl bg-slate-100 dark:bg-slate-800/50"></div>
+      </div>
+    </div>
+  );
+}
+
+async function CategoryContent({ params }) {
   const { slug } = await params;
   const category = categories.find((c) => c.slug === slug);
 
@@ -79,6 +96,14 @@ export default async function CategoryPage({ params }) {
         </div>
       )}
     </div>
+  );
+}
+
+export default function CategoryPage({ params }) {
+  return (
+    <Suspense fallback={<CategorySkeleton />}>
+      <CategoryContent params={params} />
+    </Suspense>
   );
 }
 

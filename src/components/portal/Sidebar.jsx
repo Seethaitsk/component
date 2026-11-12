@@ -56,7 +56,7 @@ export default function Sidebar({ open, onClose }) {
       {/* Sidebar Panel */}
       <aside
         aria-label="Component categories"
-        className={`fixed inset-y-0 left-0 z-40 w-64 border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col transition-transform duration-200 lg:sticky lg:top-20 lg:h-[calc(100vh-6rem)] lg:rounded-2xl lg:border lg:border-slate-200 lg:dark:border-slate-800 lg:shadow-xs lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-64 shrink-0 border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col transition-transform duration-200 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:translate-x-0 ${
           open ? 'translate-x-0 shadow-2xl' : '-translate-x-full'
         }`}
       >

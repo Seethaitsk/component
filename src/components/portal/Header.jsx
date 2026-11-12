@@ -18,7 +18,7 @@ export default function Header({ onMobileMenuToggle }) {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 transition-colors">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Mobile Toggle + Logo */}
         <div className="flex items-center gap-3">
           <button
