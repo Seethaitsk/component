@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Search, Compass, Code2, Menu, X, Sparkles, Plus, Palette, Kanban, LayoutTemplate, AppWindow } from 'lucide-react';
+import { Search, Compass, Code2, Menu, X, Sparkles, Plus, Palette, Kanban, LayoutTemplate, AppWindow, Bot } from 'lucide-react';
 
 export default function Header({ onMobileMenuToggle }) {
   const [query, setQuery] = useState('');
@@ -98,6 +98,13 @@ export default function Header({ onMobileMenuToggle }) {
           >
             <Kanban className="h-3.5 w-3.5 text-slate-500" />
             <span>Roadmap</span>
+          </Link>
+          <Link
+            href="/agent"
+            className="flex items-center gap-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200/80 px-2.5 py-1.5 text-xs font-bold hover:bg-emerald-100 transition-colors shadow-xs"
+          >
+            <Bot className="h-3.5 w-3.5 text-emerald-600" />
+            <span className="hidden sm:inline">AI Agent</span>
           </Link>
           <Link
             href="/new"

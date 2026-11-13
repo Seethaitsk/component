@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal, LayoutTemplate, AppWindow } from 'lucide-react';
+import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal, LayoutTemplate, AppWindow, Bot } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
 import { sectionsData } from '@/data/sectionsData';
@@ -160,7 +160,32 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <Link
+            href="/agent"
+            className="group rounded-2xl border border-emerald-200 bg-gradient-to-br from-white to-emerald-50/40 p-5 shadow-xs hover:border-emerald-500 hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 group-hover:scale-105 transition-transform">
+                <Bot className="h-5 w-5" />
+              </span>
+              <div className="flex items-center gap-1.5">
+                <h3 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                  AI Agent Studio
+                </h3>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono">
+                  Active
+                </span>
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Prompt-to-component generator, accessibility auditor, and 1-click library saver powered by AI.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-emerald-700 inline-flex items-center gap-1 group-hover:underline">
+              <span>Launch AI Agent</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
           <Link
             href="/sections"
             className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
