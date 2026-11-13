@@ -1,13 +1,14 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronRight, Calendar, Tag, FolderGit2, CheckCircle, Info } from 'lucide-react';
+import { ChevronRight, Calendar, Tag, FolderGit2, CheckCircle, Info, ExternalLink } from 'lucide-react';
 import { componentsData } from '@/data/components';
 import { categories } from '@/data/categories';
 import ComponentPreview from '@/components/portal/ComponentPreview';
 import PropsTable from '@/components/portal/PropsTable';
 import CodeSnippetViewer from '@/components/portal/CodeSnippetViewer';
 import ComponentCard from '@/components/portal/ComponentCard';
+import FigmaFrameInspector from '@/components/portal/FigmaFrameInspector';
 
 // Generate static params for all components
 export function generateStaticParams() {
@@ -76,6 +77,18 @@ async function ComponentDetailContent({ params }) {
           <span className="text-xs font-bold capitalize text-emerald-700 bg-emerald-50 dark:bg-emerald-950/60 dark:text-emerald-300 px-2.5 py-1 rounded-full">
             {component.status || 'stable'}
           </span>
+          {component.figma && (
+            <a
+              href={component.figma.frameUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white px-3 py-1 text-xs font-semibold shadow-xs transition-colors"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#1abcfe] animate-pulse"></span>
+              <span>Figma: {component.figma.nodeId}</span>
+              <ExternalLink className="h-3 w-3 text-slate-400" />
+            </a>
+          )}
           <span className="inline-flex items-center gap-1 text-xs text-slate-400">
             <Calendar className="h-3.5 w-3.5" />
             <span>Added {component.dateAdded}</span>
@@ -119,7 +132,20 @@ async function ComponentDetailContent({ params }) {
         />
       </section>
 
-      {/* Section 2: Code Snippets (React, HTML+CSS, Bootstrap) */}
+      {/* Section 2: Figma Design Frame & Token Sync */}
+      {component.figma && (
+        <section className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Figma Design Frame & Specs</h2>
+            <span className="text-xs text-slate-400">
+              Live link to SysCorp Enterprise Kit v2.4 (Node: {component.figma.nodeId})
+            </span>
+          </div>
+          <FigmaFrameInspector component={component} />
+        </section>
+      )}
+
+      {/* Section 3: Code Snippets (React, HTML+CSS, Bootstrap) */}
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">Installation & Code</h2>

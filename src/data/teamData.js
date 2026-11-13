@@ -180,3 +180,4 @@ export const teamStandards = [
     description: 'All changes pushed to main repository automatically trigger build validation and update the live library.',
   },
 ];
+

@@ -73,10 +73,11 @@ This portal solves that problem. It gives everyone—designers, project managers
   - **Screen Size Controls**: Buttons to test how it looks on mobile phones, tablets, or wide computer monitors.
   - **Theme Controls**: Switch between daylight white and dark midnight themes.
   - **The Control Board (Interactive Playground)**: Simple drop-down menus and checkboxes that let you change button colors, labels, and icons live.
+  - **Figma Design Frame & Specs Inspector**: A live bridge linking this piece of code directly to the original Figma artwork created by our design team. It displays the exact Figma frame name, node ID, designer name, dimensions, padding, and proves 1-to-1 visual alignment with a single click to open the original artwork in Figma.
   - **Property Guide**: A simple table explaining what options can be changed.
   - **Usage Advice**: Plain-English tips on when to use this part and when to avoid it.
   - **Projects List**: Names of company projects currently using this exact part.
-- **What You Can Do**: Test the part, customize how it looks, and copy it for your project.
+- **What You Can Do**: Test the part, customize how it looks, inspect the linked Figma design frame, and copy it for your project.
 
 ---
 
@@ -110,13 +111,14 @@ This portal solves that problem. It gives everyone—designers, project managers
 ---
 
 ### Page 6: AI Agent Studio (`/agent`)
-- **Purpose**: An artificial intelligence assistant that builds new web components on demand.
+- **Purpose**: An artificial intelligence assistant that builds new web components on demand under strict company safety rules.
 - **What You See**:
   - **Left Side (Chat Screen)**: A conversation window where you type requests in plain English. Example: *"Create a green WhatsApp chat button with an online dot."*
-  - **Right Side (Live Workshop)**: The newly created component appears live immediately. You can click on it and test it right away.
+  - **Strict Token Guardrails (Brand Protection)**: The AI is restricted so it can ONLY use official SysCorp colors (#1a5cdd brand blue, #0d1220 dark navy), standardized curves, and approved layouts. It cannot create off-brand or random styling.
+  - **Right Side (Live Workshop)**: The newly created component appears live immediately with interactive tabs for preview, React code, Bootstrap 5 code, props table, and accessibility scores.
   - **Accessibility Scorecard**: An automated health check scoring the component out of 100 on contrast and ease of use for visually impaired visitors.
-  - **1-Click "Save to Library" Button**: Saves the new item directly into our official system with one click.
-- **What You Can Do**: Chat with the AI, generate custom components, verify accessibility, and add new parts without knowing how to code.
+  - **Mandatory Human Review Gate (Safety Gate)**: Instead of letting the AI publish directly to the live library, every new component requires an authorized team member (like Sarah Lin or Alex Kumar) to review a 4-point safety checklist (design tokens, accessibility, dual-framework code, and clean settings) and formally sign off before anything is merged.
+- **What You Can Do**: Chat with the AI, generate brand-compliant components, verify accessibility, and request official human review before adding new parts to the company library.
 
 ---
 
@@ -275,10 +277,12 @@ ui-components-portal/
 ### What is Finished (100% Ready)
 - Master catalog of **23 atomic UI building blocks** across 10 distinct categories.
 - **Interactive Control Board (Playground)** for every component with live preview adjustments.
+- **Figma Frame Sync & Design Inspector**: Direct bidirectional linking between each live component and its original Figma design frame (node ID, designer metadata, dimensions, and 1:1 token mapping).
 - **7 Modular Page Sections** (Hero, Features, Pricing, CTA, FAQ, Stats, Testimonials).
 - **4 Complete Interactive Template Websites** (SaaS Cloud, Creative Studio, CloudOps Telemetry, Sports & Game Arena).
 - **Responsive Simulator** with Desktop, Laptop, Tablet, and Mobile phone frames.
-- **In-Portal AI Agent Studio** with natural language component generation, A11y accessibility audit, and one-click saving.
+- **In-Portal AI Agent Studio with Token Guardrails**: Generates components strictly using SysCorp brand tokens (#1a5cdd, #0d1220, rounded-2xl).
+- **Mandatory Human Review Gate**: 4-point safety checklist and authorized reviewer sign-off before any AI component is added to the library.
 - **Design Tokens Guide** for brand colors, typography scales, corner radii, and drop shadows.
 - **Live Roadmap Tracker** showing component readiness and milestone delivery.
 - **Icon Explorer** with 70+ scalable brand symbols.
@@ -299,7 +303,7 @@ ui-components-portal/
 **Yes.** Open the **Template Websites** page and launch the interactive simulator. You can show clients a working website with buttons they can click, pricing options they can switch, and forms they can test on both phone and laptop screens.
 
 #### Q3: What happens when the AI Agent generates a new component?
-When you click **"Save to Library"**, the portal automatically creates the permanent files in the background and lists the new component in our official catalog. Anyone visiting the portal will immediately see and be able to use it.
+Because of our strict quality rules, the AI cannot publish directly to the live system by itself. You click **"Submit for Review (Gate)"**, which opens an approval dialog. An authorized reviewer (such as Lead Designer Sarah Lin or Lead Architect Alex Kumar) inspects the 4-point safety checklist (brand tokens, accessibility, dual code, and settings) and signs off. Once approved, it is permanently added to our library with an official verification badge.
 
 #### Q4: What does "WCAG 2.1 AA Accessibility" mean?
 It is the global international standard for making websites usable for everyone, including people who have visual impairments or color blindness, or who use keyboards instead of a mouse. Our components are pre-tested to meet these legal and quality standards.

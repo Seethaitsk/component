@@ -77,6 +77,15 @@ export default function ComponentCard({ component }) {
               {t}
             </span>
           ))}
+          {component.figma && (
+            <span
+              className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md"
+              title={`Figma Node ${component.figma.nodeId}`}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0d99ff]"></span>
+              <span>Figma</span>
+            </span>
+          )}
         </div>
 
         <span className="text-[11px] text-slate-400">

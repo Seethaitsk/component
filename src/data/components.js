@@ -22,6 +22,50 @@ export const componentsData = [
       { name: 'icon', type: 'ReactComponent', default: 'null', description: 'Optional Lucide icon to display beside the button text.' },
       { name: 'iconPosition', type: "'left' | 'right'", default: "'left'", description: 'Placement of the icon relative to the label.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "101:204",
+          "frameName": "01 Foundations & Actions / Primary Button",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=101-204",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.2",
+          "specs": {
+                "width": "Auto (min 112px)",
+                "height": "40px",
+                "padding": "10px 18px",
+                "radius": "12px (rounded-xl)",
+                "layout": "Auto-layout (Horizontal, Gap: 8px)"
+          },
+          "tokens": [
+                {
+                      "property": "Background Fill",
+                      "figmaToken": "Brand/Brand-600",
+                      "codeToken": "bg-[#1a5cdd]"
+                },
+                {
+                      "property": "Text / Foreground",
+                      "figmaToken": "Neutral/White",
+                      "codeToken": "text-white"
+                },
+                {
+                      "property": "Corner Radius",
+                      "figmaToken": "Radii/rounded-xl",
+                      "codeToken": "rounded-xl (12px)"
+                },
+                {
+                      "property": "Font Family",
+                      "figmaToken": "Typography/Inter-Bold-14",
+                      "codeToken": "font-sans font-bold text-sm"
+                },
+                {
+                      "property": "Hover State",
+                      "figmaToken": "Brand/Brand-700",
+                      "codeToken": "hover:bg-[#1449b2]"
+                }
+          ]
+    },
     code: {
       react: `import PrimaryButton from '@/components/library/PrimaryButton';
 
@@ -76,6 +120,45 @@ export default function Example() {
       { name: 'endIcon', type: 'ReactComponent', default: 'null', description: 'Icon embedded on the right side of the input.' },
       { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables user input and applies muted background.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "102:410",
+          "frameName": "02 Form Controls / Validated Input Field",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=102-410",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.0",
+          "specs": {
+                "width": "380px",
+                "height": "42px",
+                "padding": "10px 14px",
+                "radius": "8px (rounded-lg)",
+                "layout": "Auto-layout (Vertical, Gap: 6px)"
+          },
+          "tokens": [
+                {
+                      "property": "Border Stroke",
+                      "figmaToken": "Neutral/Slate-200",
+                      "codeToken": "border-slate-200"
+                },
+                {
+                      "property": "Focus Ring",
+                      "figmaToken": "Brand/Brand-600",
+                      "codeToken": "focus:border-[#1a5cdd]"
+                },
+                {
+                      "property": "Label Typography",
+                      "figmaToken": "Typography/Inter-Medium-14",
+                      "codeToken": "text-sm font-medium text-slate-700"
+                },
+                {
+                      "property": "Error State",
+                      "figmaToken": "Semantic/Rose-500",
+                      "codeToken": "text-rose-500"
+                }
+          ]
+    },
     code: {
       react: `import InputField from '@/components/library/InputField';
 
@@ -124,6 +207,40 @@ export default function Example() {
       { name: 'ctaText', type: 'string', default: "'Get Started'", description: 'Label for the right-hand primary CTA button.' },
       { name: 'onCtaClick', type: 'function', default: 'undefined', description: 'Callback executed when the CTA button is clicked.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "104:12",
+          "frameName": "03 Navigation / Enterprise App Header",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=104-12",
+          "status": "synced",
+          "lastVerified": "2026-11-11",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.3.9",
+          "specs": {
+                "width": "100% Full Width",
+                "height": "64px",
+                "padding": "0 24px",
+                "radius": "0px",
+                "layout": "Auto-layout (Horizontal, Space-between)"
+          },
+          "tokens": [
+                {
+                      "property": "Header Surface",
+                      "figmaToken": "Neutral/White",
+                      "codeToken": "bg-white"
+                },
+                {
+                      "property": "Border Divider",
+                      "figmaToken": "Neutral/Slate-200",
+                      "codeToken": "border-b border-slate-200"
+                },
+                {
+                      "property": "Brand Accent",
+                      "figmaToken": "Brand/Brand-600",
+                      "codeToken": "text-[#1a5cdd]"
+                }
+          ]
+    },
     code: {
       react: `import Navbar from '@/components/library/Navbar';
 
@@ -189,6 +306,45 @@ export default function Example() {
       { name: 'hoverable', type: 'boolean', default: 'true', description: 'Enables slight elevation lift on hover.' },
       { name: 'footer', type: 'ReactNode', default: 'undefined', description: 'Footer content rendered below a divider.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "105:88",
+          "frameName": "04 Containers / Feature Card",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=105-88",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.1",
+          "specs": {
+                "width": "360px",
+                "height": "Auto",
+                "padding": "24px",
+                "radius": "16px (rounded-2xl)",
+                "layout": "Auto-layout (Vertical, Gap: 16px)"
+          },
+          "tokens": [
+                {
+                      "property": "Surface Fill",
+                      "figmaToken": "Neutral/White",
+                      "codeToken": "bg-white"
+                },
+                {
+                      "property": "Border Stroke",
+                      "figmaToken": "Neutral/Slate-200",
+                      "codeToken": "border border-slate-200"
+                },
+                {
+                      "property": "Elevation",
+                      "figmaToken": "Shadow/sm",
+                      "codeToken": "shadow-xs"
+                },
+                {
+                      "property": "Corner Radius",
+                      "figmaToken": "Radii/rounded-2xl",
+                      "codeToken": "rounded-2xl (16px)"
+                }
+          ]
+    },
     code: {
       react: `import Card from '@/components/library/Card';
 import PrimaryButton from '@/components/library/PrimaryButton';
@@ -247,6 +403,40 @@ export default function Example() {
       { name: 'footer', type: 'ReactNode', default: 'undefined', description: 'Action button row aligned to the bottom right.' },
       { name: 'maxWidth', type: 'string', default: "'max-w-md'", description: 'Tailwind max-width class constraint.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "106:33",
+          "frameName": "05 Feedback & Overlays / Dialog Overlay",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=106-33",
+          "status": "synced",
+          "lastVerified": "2026-11-10",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.0",
+          "specs": {
+                "width": "480px",
+                "height": "Auto",
+                "padding": "24px",
+                "radius": "16px (rounded-2xl)",
+                "layout": "Auto-layout (Vertical, Gap: 20px)"
+          },
+          "tokens": [
+                {
+                      "property": "Backdrop Fill",
+                      "figmaToken": "Navy/950 (Alpha 60%)",
+                      "codeToken": "bg-slate-900/60"
+                },
+                {
+                      "property": "Modal Surface",
+                      "figmaToken": "Neutral/White",
+                      "codeToken": "bg-white"
+                },
+                {
+                      "property": "Elevation",
+                      "figmaToken": "Shadow/xl",
+                      "codeToken": "shadow-xl"
+                }
+          ]
+    },
     code: {
       react: `import { useState } from 'react';
 import Modal from '@/components/library/Modal';
@@ -322,6 +512,40 @@ export default function Example() {
       { name: 'dismissible', type: 'boolean', default: 'false', description: 'Displays an X button to hide the alert.' },
       { name: 'onDismiss', type: 'function', default: 'undefined', description: 'Callback executed when the user dismisses the alert.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "107:19",
+          "frameName": "06 Feedback / Notification Banner",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=107-19",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.2",
+          "specs": {
+                "width": "100%",
+                "height": "Auto",
+                "padding": "14px 18px",
+                "radius": "12px (rounded-xl)",
+                "layout": "Auto-layout (Horizontal, Gap: 12px)"
+          },
+          "tokens": [
+                {
+                      "property": "Tint Fill",
+                      "figmaToken": "Brand/Brand-50",
+                      "codeToken": "bg-blue-50"
+                },
+                {
+                      "property": "Icon Color",
+                      "figmaToken": "Brand/Brand-600",
+                      "codeToken": "text-[#1a5cdd]"
+                },
+                {
+                      "property": "Text Color",
+                      "figmaToken": "Neutral/Slate-700",
+                      "codeToken": "text-slate-700"
+                }
+          ]
+    },
     code: {
       react: `import Alert from '@/components/library/Alert';
 
@@ -374,6 +598,40 @@ export default function Example() {
       { name: 'striped', type: 'boolean', default: 'true', description: 'Alternating row background colors.' },
       { name: 'searchable', type: 'boolean', default: 'true', description: 'Renders a search input to filter records live.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "108:95",
+          "frameName": "07 Data Display / Paginated Records Grid",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=108-95",
+          "status": "synced",
+          "lastVerified": "2026-11-11",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.0",
+          "specs": {
+                "width": "100%",
+                "height": "Auto",
+                "padding": "0px",
+                "radius": "16px (rounded-2xl)",
+                "layout": "Auto-layout (Vertical Table, Gap: 0px)"
+          },
+          "tokens": [
+                {
+                      "property": "Header Row Fill",
+                      "figmaToken": "Neutral/Slate-50",
+                      "codeToken": "bg-slate-50"
+                },
+                {
+                      "property": "Row Divider",
+                      "figmaToken": "Neutral/Slate-100",
+                      "codeToken": "divide-slate-100"
+                },
+                {
+                      "property": "Active Selection",
+                      "figmaToken": "Brand/Brand-50",
+                      "codeToken": "bg-blue-50/50"
+                }
+          ]
+    },
     code: {
       react: `import DataTable from '@/components/library/DataTable';
 
@@ -433,6 +691,35 @@ export default function Example() {
       { name: 'images', type: 'Array<{ src, alt, caption }>', default: '[...]', description: 'Array of image objects.' },
       { name: 'className', type: 'string', default: "''", description: 'Custom CSS container overrides.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "109:54",
+          "frameName": "08 Media / Responsive Media Grid",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=109-54",
+          "status": "synced",
+          "lastVerified": "2026-11-09",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.3.8",
+          "specs": {
+                "width": "100%",
+                "height": "Auto",
+                "padding": "16px",
+                "radius": "16px (rounded-2xl)",
+                "layout": "Grid (3 Columns, Gap: 16px)"
+          },
+          "tokens": [
+                {
+                      "property": "Frame Border",
+                      "figmaToken": "Neutral/Slate-200",
+                      "codeToken": "border-slate-200"
+                },
+                {
+                      "property": "Image Corner",
+                      "figmaToken": "Radii/rounded-xl",
+                      "codeToken": "rounded-xl"
+                }
+          ]
+    },
     code: {
       react: `import ImageGallery from '@/components/library/ImageGallery';
 
@@ -484,6 +771,40 @@ export default function Example() {
       { name: 'title', type: 'string', default: "'Send us a message'", description: 'Form header title.' },
       { name: 'subtitle', type: 'string', default: "'We typically respond within 24 hours.'", description: 'Subtext displayed beneath the title.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "110:202",
+          "frameName": "09 Forms / Enterprise Inquiries Card",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=110-202",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.1",
+          "specs": {
+                "width": "480px",
+                "height": "Auto",
+                "padding": "32px",
+                "radius": "24px (rounded-3xl)",
+                "layout": "Auto-layout (Vertical, Gap: 20px)"
+          },
+          "tokens": [
+                {
+                      "property": "Surface Fill",
+                      "figmaToken": "Neutral/White",
+                      "codeToken": "bg-white"
+                },
+                {
+                      "property": "Card Radius",
+                      "figmaToken": "Radii/rounded-3xl",
+                      "codeToken": "rounded-3xl"
+                },
+                {
+                      "property": "Submit Button",
+                      "figmaToken": "Brand/Brand-600",
+                      "codeToken": "bg-[#1a5cdd]"
+                }
+          ]
+    },
     code: {
       react: `import ContactForm from '@/components/library/ContactForm';
 
@@ -539,6 +860,40 @@ export default function Example() {
       { name: 'tagline', type: 'string', default: "'Modern UI components...'", description: 'Short brand mission description.' },
       { name: 'columns', type: 'Array<{ title, links }>', default: '[...]', description: 'Directory columns with label and href lists.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "111:15",
+          "frameName": "10 Navigation / Global Site Footer",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=111-15",
+          "status": "synced",
+          "lastVerified": "2026-11-11",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.0",
+          "specs": {
+                "width": "100% Full Width",
+                "height": "Auto",
+                "padding": "48px 24px",
+                "radius": "0px",
+                "layout": "Auto-layout (Vertical Columns, Gap: 32px)"
+          },
+          "tokens": [
+                {
+                      "property": "Background Fill",
+                      "figmaToken": "Navy/950",
+                      "codeToken": "bg-[#0d1220]"
+                },
+                {
+                      "property": "Muted Text",
+                      "figmaToken": "Neutral/Slate-400",
+                      "codeToken": "text-slate-400"
+                },
+                {
+                      "property": "Accent Highlight",
+                      "figmaToken": "Brand/Brand-500",
+                      "codeToken": "text-[#2d6ef5]"
+                }
+          ]
+    },
     code: {
       react: `import Footer from '@/components/library/Footer';
 
@@ -598,6 +953,40 @@ export default function Example() {
       { name: 'odds', type: 'Array<{ label, value }>', default: '[...]', description: 'Market outcomes and current decimal odds.' },
       { name: 'onSelectOdds', type: 'function(odd)', default: 'undefined', description: 'Callback executed when an outcome is picked.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "112:77",
+          "frameName": "11 Gaming & Betting / Live Match Odds Matrix",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=112-77",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.3",
+          "specs": {
+                "width": "380px",
+                "height": "Auto",
+                "padding": "20px",
+                "radius": "20px",
+                "layout": "Auto-layout (Vertical, Gap: 14px)"
+          },
+          "tokens": [
+                {
+                      "property": "Dark Surface",
+                      "figmaToken": "Navy/900",
+                      "codeToken": "bg-[#151b2e]"
+                },
+                {
+                      "property": "Live Pulse",
+                      "figmaToken": "Semantic/Emerald-500",
+                      "codeToken": "bg-emerald-500"
+                },
+                {
+                      "property": "Odds Font",
+                      "figmaToken": "Typography/Mono-Bold",
+                      "codeToken": "font-mono font-bold"
+                }
+          ]
+    },
     code: {
       react: `import OddsCard from '@/components/library/OddsCard';
 
@@ -654,6 +1043,40 @@ export default function Example() {
       { name: 'className', type: 'string', default: "''", description: 'Additional CSS classes.' },
       { name: 'children', type: 'ReactNode', default: 'undefined', description: 'Component content.' },
     ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "113:42",
+          "frameName": "12 Indicators / Status & Category Badges",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=113-42",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.1",
+          "specs": {
+                "width": "Auto",
+                "height": "24px",
+                "padding": "4px 10px",
+                "radius": "9999px (rounded-full)",
+                "layout": "Auto-layout (Horizontal, Gap: 6px)"
+          },
+          "tokens": [
+                {
+                      "property": "Tint Fill",
+                      "figmaToken": "Brand/Brand-50",
+                      "codeToken": "bg-blue-50"
+                },
+                {
+                      "property": "Pill Text",
+                      "figmaToken": "Brand/Brand-600",
+                      "codeToken": "text-[#1a5cdd]"
+                },
+                {
+                      "property": "Corner Radius",
+                      "figmaToken": "Radii/rounded-full",
+                      "codeToken": "rounded-full"
+                }
+          ]
+    },
     code: {
       react: `<Badge>Badge Action</Badge>`,
       htmlCss: `<div class="inline-flex items-center px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-semibold">Badge Action</div>`,
@@ -688,6 +1111,40 @@ export default function Example() {
             "description": "Presence status dot color."
       }
 ],
+        figma: {
+          "fileKey": "SysCorpDS",
+          "nodeId": "114:80",
+          "frameName": "13 Identity / User Avatar & Presence Dot",
+          "frameUrl": "https://www.figma.com/design/SysCorpDS/SysCorp-Enterprise-Kit?node-id=114-80",
+          "status": "synced",
+          "lastVerified": "2026-11-12",
+          "designer": "Sarah Lin (Lead Design Architect)",
+          "version": "v2.4.2",
+          "specs": {
+                "width": "40px",
+                "height": "40px",
+                "padding": "0px",
+                "radius": "9999px (rounded-full)",
+                "layout": "Circle with Status Badge"
+          },
+          "tokens": [
+                {
+                      "property": "Avatar Shape",
+                      "figmaToken": "Radii/rounded-full",
+                      "codeToken": "rounded-full"
+                },
+                {
+                      "property": "Border Ring",
+                      "figmaToken": "Neutral/White",
+                      "codeToken": "ring-2 ring-white"
+                },
+                {
+                      "property": "Presence Dot",
+                      "figmaToken": "Semantic/Emerald-500",
+                      "codeToken": "bg-emerald-500"
+                }
+          ]
+    },
     code: {
       react: "<Avatar initials=\"SC\" status=\"online\" />",
       htmlCss: "<div class=\"relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700 border border-slate-200\">\n  SC\n  <span class=\"absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white\"></span>\n</div>",
