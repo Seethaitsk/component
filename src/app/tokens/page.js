@@ -12,7 +12,12 @@ import {
   Sparkles,
   ChevronRight,
   ExternalLink,
+  SlidersHorizontal,
+  FolderGit2,
+  CheckCircle2,
+  Code2,
 } from 'lucide-react';
+import { projectTokens } from '@/data/projectTokens';
 
 const colorPalettes = [
   {
@@ -43,7 +48,7 @@ const colorPalettes = [
     colors: [
       { name: 'Emerald 500 (Success)', hex: '#10b981', tw: 'bg-emerald-500', text: 'text-white', note: 'Completed status & badges' },
       { name: 'Emerald 50 (Tint)', hex: '#ecfdf5', tw: 'bg-emerald-50', text: 'text-slate-800', note: 'Success alert background' },
-      { name: 'Amber 500 (Warning)', hex: '#f59e0b', tw: 'bg-amber-500', text: 'text-white', note: 'In review & alert warnings' },
+      { name: 'Amber 500 (Warning)', hex: '#f59e0b', tw: 'bg-amber-50', text: 'text-white', note: 'In review & alert warnings' },
       { name: 'Amber 50 (Tint)', hex: '#fffbeb', tw: 'bg-amber-50', text: 'text-slate-800', note: 'Warning banner background' },
       { name: 'Rose 500 (Danger)', hex: '#ef4444', tw: 'bg-rose-500', text: 'text-white', note: 'Destructive button & errors' },
       { name: 'Rose 50 (Tint)', hex: '#fef2f2', tw: 'bg-rose-50', text: 'text-slate-800', note: 'Error notification background' },
@@ -92,8 +97,13 @@ const shadowTokens = [
 ];
 
 export default function DesignTokensPage() {
-  const [activeTab, setActiveTab] = useState('colors');
+  const [activeTab, setActiveTab] = useState('projects'); // 'projects' | 'colors' | 'typography' | 'radii' | 'shadows'
+  const [selectedProjectId, setSelectedProjectId] = useState('customer-portal');
   const [copiedValue, setCopiedValue] = useState('');
+  const [exportCodeTab, setExportCodeTab] = useState('tailwind'); // 'tailwind' | 'css'
+
+  const selectedProject =
+    projectTokens.find((p) => p.id === selectedProjectId) || projectTokens[0];
 
   const copyToClipboard = async (text, id) => {
     try {
@@ -106,7 +116,7 @@ export default function DesignTokensPage() {
   };
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 pb-16">
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500">
         <Link href="/" className="hover:text-[#1a5cdd] transition-colors">
@@ -120,19 +130,20 @@ export default function DesignTokensPage() {
       <div className="rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white via-blue-50/30 to-slate-50 p-8 sm:p-10 shadow-xs space-y-4">
         <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/80 px-3.5 py-1 text-xs font-bold text-[#1a5cdd]">
           <Sparkles className="h-3.5 w-3.5" />
-          <span>SysCorp Design System v2.0</span>
+          <span>SysCorp Multi-Brand Token Architecture v2.4</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Design Tokens & Theme Guide
+          Project-Wise & Global Design Tokens
         </h1>
         <p className="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">
-          Standardized visual variables for colors, typography scales, elevation shadows, and border radii used across SysCorp applications.
+          Centralized style variables with project-specific theme overrides. Switch between target projects below to inspect colors, corner geometry, typography, and live component previews.
         </p>
 
         {/* Tab Navigation */}
         <div className="flex flex-wrap gap-2 pt-2">
           {[
-            { id: 'colors', label: 'Color Palette', icon: Palette },
+            { id: 'projects', label: 'Project-Wise Themes (5)', icon: SlidersHorizontal },
+            { id: 'colors', label: 'Global Color Palette', icon: Palette },
             { id: 'typography', label: 'Typography Scale', icon: Type },
             { id: 'radii', label: 'Border Radii', icon: Box },
             { id: 'shadows', label: 'Elevation & Shadows', icon: Layers },
@@ -154,7 +165,313 @@ export default function DesignTokensPage() {
         </div>
       </div>
 
-      {/* Tab 1: Colors */}
+      {/* =========================================================================
+          TAB 1: PROJECT-WISE TOKEN STUDIO
+         ========================================================================= */}
+      {activeTab === 'projects' && (
+        <div className="space-y-8">
+          {/* Project Switcher Bar */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-bold text-slate-900">Select Target Project</h2>
+                <p className="text-xs text-slate-500">
+                  Choose a project to inspect its customized brand theme, corner curves, and component styling.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-slate-400 font-mono">
+                5 Projects Configured
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              {projectTokens.map((proj) => {
+                const isSelected = selectedProjectId === proj.id;
+                return (
+                  <button
+                    key={proj.id}
+                    type="button"
+                    onClick={() => setSelectedProjectId(proj.id)}
+                    className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 shadow-xs ${
+                      isSelected
+                        ? 'border-[#1a5cdd] bg-blue-50/60 ring-2 ring-blue-500/20'
+                        : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span
+                        className="h-4 w-4 rounded-full border border-black/10 shadow-xs"
+                        style={{ backgroundColor: proj.brand.primary }}
+                      />
+                      <span className="text-[10px] font-mono text-slate-400">
+                        {proj.geometry.radiusPx}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-slate-900 truncate">{proj.name}</p>
+                      <p className="text-[10px] text-slate-500 truncate">{proj.category}</p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Active Project Card & Live Canvas */}
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-xs overflow-hidden">
+            {/* Project Header Bar */}
+            <div className="p-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white flex flex-wrap items-center justify-between gap-4">
+              <div className="space-y-1 max-w-xl">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="h-3 w-3 rounded-full"
+                    style={{ backgroundColor: selectedProject.brand.primary }}
+                  />
+                  <h3 className="text-lg font-extrabold text-white tracking-tight">
+                    {selectedProject.name}
+                  </h3>
+                  <span className="rounded-full bg-slate-800 border border-slate-700 px-2.5 py-0.5 text-[10px] font-bold text-slate-300">
+                    {selectedProject.category}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {selectedProject.tagline}
+                </p>
+              </div>
+
+              {/* Figma Link & Node Info */}
+              <div className="flex items-center gap-2">
+                <a
+                  href={selectedProject.figmaFrame.frameUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 px-3.5 py-2 text-xs font-bold text-white border border-slate-700 transition-colors shadow-xs"
+                >
+                  <span className="h-2 w-2 rounded-full bg-[#1abcfe]"></span>
+                  <span>Figma Frame: {selectedProject.figmaFrame.nodeId}</span>
+                  <ExternalLink className="h-3.5 w-3.5 text-slate-400" />
+                </a>
+              </div>
+            </div>
+
+            {/* Live Component Preview Themed to this Project */}
+            <div className="p-6 sm:p-8 bg-slate-50 border-b border-slate-200 space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    Live Component Rendering under {selectedProject.name} Tokens
+                  </h4>
+                  <p className="text-[11px] text-slate-500">
+                    Observe how standard components inherit this project&apos;s primary color ({selectedProject.brand.primary}) and radius ({selectedProject.geometry.radiusPx}).
+                  </p>
+                </div>
+                <span className="text-[11px] font-mono text-slate-500">
+                  Density: {selectedProject.geometry.density}
+                </span>
+              </div>
+
+              {/* Themed Preview Canvas */}
+              <div
+                className="p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-wrap items-center justify-around gap-6"
+                style={{
+                  backgroundColor: selectedProject.brand.cardSurface,
+                  color: selectedProject.brand.cardSurface === '#ffffff' ? '#0f172a' : '#ffffff',
+                }}
+              >
+                {/* 1. Themed Button */}
+                <div className="space-y-1.5 text-center">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Primary Button</span>
+                  <div>
+                    <button
+                      type="button"
+                      className="px-5 py-2.5 text-xs font-bold shadow-md transition-all cursor-pointer"
+                      style={{
+                        backgroundColor: selectedProject.brand.primary,
+                        color: selectedProject.brand.primaryText,
+                        borderRadius: selectedProject.geometry.radiusPx,
+                      }}
+                    >
+                      Action Button
+                    </button>
+                  </div>
+                </div>
+
+                {/* 2. Themed Badge */}
+                <div className="space-y-1.5 text-center">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Status Pill Badge</span>
+                  <div>
+                    <span
+                      className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold"
+                      style={{
+                        backgroundColor: selectedProject.brand.primaryTint,
+                        color: selectedProject.brand.primary,
+                        borderRadius: '9999px',
+                        border: `1px solid ${selectedProject.brand.primary}30`,
+                      }}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 rounded-full animate-pulse"
+                        style={{ backgroundColor: selectedProject.brand.primary }}
+                      />
+                      <span>Active Match State</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* 3. Themed Card Snippet */}
+                <div
+                  className="p-4 border shadow-xs max-w-xs space-y-2 text-left"
+                  style={{
+                    backgroundColor: selectedProject.brand.cardSurface,
+                    borderColor: selectedProject.brand.border,
+                    borderRadius: selectedProject.geometry.radiusPx,
+                  }}
+                >
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold">Project Card</span>
+                    <span
+                      className="text-[10px] font-mono font-bold"
+                      style={{ color: selectedProject.brand.primary }}
+                    >
+                      {selectedProject.brand.primary}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    Styled automatically using {selectedProject.name}&apos;s token definitions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Token Variables & Values Breakdown */}
+            <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left Column: Brand Colors Swatches */}
+              <div className="space-y-4">
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                  <Palette className="h-4 w-4 text-[#1a5cdd]" />
+                  <span>Project Color Overrides</span>
+                </h4>
+
+                <div className="space-y-2.5">
+                  {[
+                    { label: 'Primary Brand Color', val: selectedProject.brand.primary, desc: 'Buttons, highlights, active rings' },
+                    { label: 'Primary Hover State', val: selectedProject.brand.primaryHover, desc: 'Hover & pressed action background' },
+                    { label: 'Primary Background Tint', val: selectedProject.brand.primaryTint, desc: 'Light highlight surfaces & tags' },
+                    { label: 'Dark Surface / Panel', val: selectedProject.brand.darkSurface, desc: 'Navigation and elevated dark containers' },
+                    { label: 'Container Border Stroke', val: selectedProject.brand.border, desc: 'Dividers & container bounding lines' },
+                  ].map((colorItem) => {
+                    const isCopied = copiedValue === colorItem.val;
+                    return (
+                      <div
+                        key={colorItem.label}
+                        className="flex items-center justify-between p-3 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="h-8 w-8 rounded-lg border border-black/10 shadow-xs shrink-0"
+                            style={{ backgroundColor: colorItem.val }}
+                          />
+                          <div>
+                            <p className="text-xs font-bold text-slate-900">{colorItem.label}</p>
+                            <p className="text-[10px] text-slate-500">{colorItem.desc}</p>
+                          </div>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => copyToClipboard(colorItem.val, colorItem.val)}
+                          className="flex items-center gap-1 text-xs font-mono font-bold text-slate-700 bg-white border border-slate-200 hover:border-[#1a5cdd] px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
+                        >
+                          {isCopied ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
+                          <span>{colorItem.val}</span>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right Column: Geometry, Typography & Export Snippet */}
+              <div className="space-y-4">
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                  <Box className="h-4 w-4 text-[#1a5cdd]" />
+                  <span>Geometry & Typography Specs</span>
+                </h4>
+
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 rounded-xl border border-slate-200 bg-slate-50 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">Base Radius</span>
+                    <p className="font-mono font-extrabold text-slate-900">{selectedProject.geometry.radius} ({selectedProject.geometry.radiusPx})</p>
+                  </div>
+                  <div className="p-3 rounded-xl border border-slate-200 bg-slate-50 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">Button Radius</span>
+                    <p className="font-mono font-extrabold text-slate-900">{selectedProject.geometry.buttonRadius}</p>
+                  </div>
+                  <div className="p-3 rounded-xl border border-slate-200 bg-slate-50 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">Font Family</span>
+                    <p className="font-bold text-slate-900 truncate">{selectedProject.typography.fontFamily.split(',')[0]}</p>
+                  </div>
+                  <div className="p-3 rounded-xl border border-slate-200 bg-slate-50 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">Density Standard</span>
+                    <p className="font-semibold text-slate-700 truncate">{selectedProject.geometry.density.split(' ')[0]}</p>
+                  </div>
+                </div>
+
+                {/* Export Code Box */}
+                <div className="space-y-2 pt-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+                      <button
+                        onClick={() => setExportCodeTab('tailwind')}
+                        className={`px-2.5 py-1 rounded-lg cursor-pointer ${
+                          exportCodeTab === 'tailwind' ? 'bg-[#1a5cdd] text-white' : 'text-slate-600'
+                        }`}
+                      >
+                        tailwind.config.js
+                      </button>
+                      <button
+                        onClick={() => setExportCodeTab('css')}
+                        className={`px-2.5 py-1 rounded-lg cursor-pointer ${
+                          exportCodeTab === 'css' ? 'bg-[#1a5cdd] text-white' : 'text-slate-600'
+                        }`}
+                      >
+                        theme.css
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={() =>
+                        copyToClipboard(
+                          exportCodeTab === 'tailwind'
+                            ? selectedProject.tailwindConfig
+                            : selectedProject.cssVariables,
+                          'export-code'
+                        )
+                      }
+                      className="flex items-center gap-1 text-xs font-bold text-[#1a5cdd] hover:underline cursor-pointer"
+                    >
+                      {copiedValue === 'export-code' ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                      <span>{copiedValue === 'export-code' ? 'Copied Code!' : 'Copy Config'}</span>
+                    </button>
+                  </div>
+
+                  <pre className="p-3.5 rounded-xl bg-slate-900 text-slate-200 text-[11px] font-mono overflow-auto border border-slate-800 max-h-48 leading-relaxed">
+                    <code>
+                      {exportCodeTab === 'tailwind'
+                        ? selectedProject.tailwindConfig
+                        : selectedProject.cssVariables}
+                    </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =========================================================================
+          TAB 2: GLOBAL COLOR PALETTES
+         ========================================================================= */}
       {activeTab === 'colors' && (
         <div className="space-y-8">
           {colorPalettes.map((palette) => (
@@ -170,30 +487,26 @@ export default function DesignTokensPage() {
                   return (
                     <div
                       key={c.name}
-                      className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs space-y-3 hover:border-blue-300 transition-all group"
+                      className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs space-y-3 hover:border-blue-200 transition-all"
                     >
-                      {/* Swatch */}
                       <div
-                        className={`h-20 w-full rounded-xl border border-black/5 shadow-xs flex items-end p-2.5 ${c.tw}`}
+                        className={`h-16 w-full rounded-xl ${c.tw} border border-slate-200/50 flex items-center justify-center font-mono text-xs font-bold shadow-xs ${c.text}`}
                       >
-                        <span className={`text-[11px] font-bold font-mono px-2 py-0.5 rounded-md bg-black/20 backdrop-blur-xs ${c.text}`}>
-                          {c.hex}
-                        </span>
+                        {c.hex}
                       </div>
 
-                      {/* Info & Copy Buttons */}
                       <div className="space-y-1">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-bold text-slate-900">{c.name}</span>
                           <button
                             type="button"
                             onClick={() => copyToClipboard(c.hex, c.hex)}
-                            className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1a5cdd] hover:underline cursor-pointer"
+                            className="flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-[#1a5cdd] transition-colors cursor-pointer"
                           >
                             {isCopied ? (
                               <>
                                 <Check className="h-3 w-3 text-emerald-600" />
-                                <span className="text-emerald-600">Copied!</span>
+                                <span className="text-emerald-600 font-semibold">Copied!</span>
                               </>
                             ) : (
                               <>
@@ -223,7 +536,9 @@ export default function DesignTokensPage() {
         </div>
       )}
 
-      {/* Tab 2: Typography */}
+      {/* =========================================================================
+          TAB 3: TYPOGRAPHY
+         ========================================================================= */}
       {activeTab === 'typography' && (
         <div className="space-y-6">
           <div>
@@ -260,7 +575,9 @@ export default function DesignTokensPage() {
         </div>
       )}
 
-      {/* Tab 3: Radii */}
+      {/* =========================================================================
+          TAB 4: RADII
+         ========================================================================= */}
       {activeTab === 'radii' && (
         <div className="space-y-6">
           <div>
@@ -295,7 +612,9 @@ export default function DesignTokensPage() {
         </div>
       )}
 
-      {/* Tab 4: Shadows */}
+      {/* =========================================================================
+          TAB 5: SHADOWS
+         ========================================================================= */}
       {activeTab === 'shadows' && (
         <div className="space-y-6">
           <div>
@@ -334,4 +653,3 @@ export default function DesignTokensPage() {
     </div>
   );
 }
-

@@ -122,14 +122,19 @@ This portal solves that problem. It gives everyone—designers, project managers
 
 ---
 
-### Page 7: Design Tokens (Style Rulebook) (`/tokens`)
-- **Purpose**: The official digital brand handbook.
+### Page 7: Design Tokens (Style Rulebook & Project Themes) (`/tokens`)
+- **Purpose**: The official digital brand handbook that controls how all colors, fonts, and shapes look across every company project.
 - **What You See**:
-  - **Color Palette Cards**: Swatches of our official SysCorp Deep Blue, Dark Navy, Emerald Green, and Neutral Greys.
-  - **Typography (Text Size) Scale**: Visual samples of headers, body text, and small notes.
-  - **Corner Curves**: Examples of sharp, rounded, and pill-shaped edges.
-  - **Elevation Shadows**: Soft shadows that make cards look like they are gently floating above the page.
-- **What You Can Do**: Click any color or size to copy its exact name.
+  - **Project-Wise Themes (5 Configured Applications)**:
+    - *Customer Portal*: Classic SysCorp Deep Blue (`#1a5cdd`) with smooth rounded corners (`16px`).
+    - *Sports & Game Arena*: High-energy Neon Emerald (`#10b981`) and deep obsidian black for live match betting.
+    - *SysCorp Creative Studio*: Electric Violet (`#8b5cf6`) with large editorial curves (`24px`).
+    - *DevOps Telemetry Console*: Information-dense Teal Cyan (`#06b6d4`) with ultra-compact (`6px`) borders for engineering dashboards.
+    - *Corporate Banking & Admin*: Forest Emerald (`#059669`) with structured compliance corners.
+  - **Interactive Themed Sandbox**: Watch how a real button, pill badge, and card look when wearing each project's colors and curves.
+  - **1-Click Theme Export**: Generates copy-ready code (`tailwind.config.js` or `theme.css`) for developers building each specific project.
+  - **Global Foundation Scale**: Master color palettes, typography scales, corner radii, and soft elevation shadows.
+- **What You Can Do**: Switch between project themes, preview how buttons change colors, and copy exact brand values.
 
 ---
 

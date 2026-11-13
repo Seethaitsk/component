@@ -308,3 +308,4 @@ for (const [id, figmaData] of Object.entries(figmaSpecsMap)) {
 
 fs.writeFileSync(filePath, content, 'utf8');
 console.log('Successfully updated src/data/components.js with Figma sync specifications!');
+

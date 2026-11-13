@@ -17,6 +17,7 @@ import {
   ChevronUp,
 } from 'lucide-react';
 import ComponentRenderer from '@/components/library/ComponentRenderer';
+import { projectTokens } from '@/data/projectTokens';
 
 const viewports = [
   { id: 'mobile', label: 'Mobile (375px)', icon: Smartphone, width: 'max-w-[375px]' },
@@ -32,6 +33,7 @@ export default function ComponentPreview({
   const [viewport, setViewport] = useState('desktop');
   const [isDark, setIsDark] = useState(false);
   const [previewTech, setPreviewTech] = useState('react'); // 'react' | 'bootstrap'
+  const [selectedProjectTheme, setSelectedProjectTheme] = useState('customer-portal');
   const [key, setKey] = useState(0);
   const [copied, setCopied] = useState(false);
   const [showPlayground, setShowPlayground] = useState(true);
@@ -179,6 +181,28 @@ export default function ComponentPreview({
 
         {/* Right: Theme Toggle, Reset, & Playground Toggle */}
         <div className="flex items-center gap-2">
+          {/* Project Theme Override Selector */}
+          <div className="hidden sm:flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-xl text-xs shadow-xs">
+            <span
+              className="h-2 w-2 rounded-full shrink-0"
+              style={{
+                backgroundColor:
+                  projectTokens.find((p) => p.id === selectedProjectTheme)?.brand.primary || '#1a5cdd',
+              }}
+            />
+            <select
+              value={selectedProjectTheme}
+              onChange={(e) => setSelectedProjectTheme(e.target.value)}
+              className="bg-transparent text-slate-700 dark:text-slate-200 text-xs font-semibold outline-none cursor-pointer"
+            >
+              {projectTokens.map((p) => (
+                <option key={p.id} value={p.id} className="text-slate-900 bg-white">
+                  Theme: {p.name.split(' ')[0]}
+                </option>
+              ))}
+            </select>
+          </div>
+
           {schemaProps.length > 0 && previewTech === 'react' && (
             <button
               type="button"
