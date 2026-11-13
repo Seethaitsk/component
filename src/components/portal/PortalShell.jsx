@@ -1,11 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
 export default function PortalShell({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const pathname = usePathname();
+
+  // If viewing a standalone website preview, render borderless without portal chrome
+  if (pathname.startsWith('/preview')) {
+    return <div className="min-h-screen w-full bg-white text-slate-900">{children}</div>;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">

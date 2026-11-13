@@ -5,6 +5,7 @@ import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
 import { sectionsData } from '@/data/sectionsData';
 import { templatesData } from '@/data/templatesData';
+import { templateWebsitesData } from '@/data/templateWebsitesData';
 import CategoryCard from '@/components/portal/CategoryCard';
 import ComponentCard from '@/components/portal/ComponentCard';
 
@@ -81,9 +82,9 @@ export default function HomePage() {
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#1a5cdd]">
-              {templatesData.length}
+              {templateWebsitesData.length}
             </div>
-            <div className="text-xs text-slate-500">Full Page Templates</div>
+            <div className="text-xs text-slate-500">Template Websites</div>
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-600">
@@ -190,14 +191,14 @@ export default function HomePage() {
                 <AppWindow className="h-5 w-5" />
               </span>
               <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
-                Full Page Templates
+                Template Websites
               </h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Complete pre-assembled SaaS landing pages, dashboards, auth screens, and support hubs with dependency lists.
+                Complete multi-screen live websites (SaaS, Agency, Ops Console, Gaming) with responsive device simulator.
               </p>
             </div>
             <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
-              <span>View Templates ({templatesData.length})</span>
+              <span>Explore Websites ({templateWebsitesData.length})</span>
               <ArrowRight className="h-3 w-3" />
             </span>
           </Link>

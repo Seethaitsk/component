@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import "./globals.css";
 import PortalShell from "@/components/portal/PortalShell";
 
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
-        <PortalShell>{children}</PortalShell>
+        <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+          <PortalShell>{children}</PortalShell>
+        </Suspense>
       </body>
     </html>
   );

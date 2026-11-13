@@ -83,7 +83,7 @@ export default function Header({ onMobileMenuToggle }) {
             className="hidden xl:flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-[#1a5cdd] transition-colors"
           >
             <AppWindow className="h-3.5 w-3.5 text-slate-500" />
-            <span>Templates</span>
+            <span>Template Websites</span>
           </Link>
           <Link
             href="/tokens"
