@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -22,6 +22,8 @@ import {
   Sparkles,
   Code2,
   X,
+  GitBranch,
+  RefreshCw,
 } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
@@ -41,6 +43,38 @@ const iconMap = {
 
 export default function Sidebar({ open, onClose }) {
   const pathname = usePathname();
+  const [gitInfo, setGitInfo] = useState(null);
+  const [syncing, setSyncing] = useState(false);
+  const [syncMsg, setSyncMsg] = useState('');
+
+  useEffect(() => {
+    fetch('/api/git')
+      .then((res) => res.json())
+      .then((data) => setGitInfo(data))
+      .catch(() => {});
+  }, []);
+
+  const handleSyncGit = async () => {
+    setSyncing(true);
+    setSyncMsg('Syncing with Git...');
+    try {
+      const res = await fetch('/api/git', { method: 'POST' });
+      const data = await res.json();
+      if (data.success) {
+        setGitInfo(data.info);
+        setSyncMsg('Synced with latest commit!');
+        setTimeout(() => window.location.reload(), 1200);
+      } else {
+        setSyncMsg(data.message || 'No remote repository set.');
+        setTimeout(() => setSyncMsg(''), 4000);
+      }
+    } catch {
+      setSyncMsg('Sync request failed');
+      setTimeout(() => setSyncMsg(''), 3000);
+    } finally {
+      setSyncing(false);
+    }
+  };
 
   const getCategoryCount = (slug) => {
     return componentsData.filter((c) => c.category === slug).length;
@@ -241,10 +275,35 @@ export default function Sidebar({ open, onClose }) {
           </div>
         </div>
 
-        {/* Footer info */}
-        <div className="border-t border-slate-800/80 p-4 text-[11px] text-slate-400 shrink-0">
-          <p className="font-semibold text-slate-200">SysCorp Library</p>
-          <p className="mt-0.5 text-slate-500">Updated: Nov 2026</p>
+        {/* Footer info & Git Status */}
+        <div className="border-t border-slate-800/80 p-4 text-[11px] text-slate-400 shrink-0 space-y-2">
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <p className="font-semibold text-slate-200">SysCorp Library</p>
+              <div className="flex items-center gap-1.5 text-slate-400 font-mono text-[10px]">
+                <GitBranch className="h-3 w-3 text-[#5b8def]" />
+                <span className="truncate max-w-[70px]">{gitInfo?.branch || 'main'}</span>
+                <span>·</span>
+                <span className="text-[#5b8def]">{gitInfo?.hash || '8619fa8'}</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleSyncGit}
+              title="Sync / Pull latest changes from Git"
+              disabled={syncing}
+              className="rounded-lg p-1.5 text-slate-400 hover:bg-[#151b2e] hover:text-[#5b8def] transition-colors cursor-pointer"
+            >
+              <RefreshCw className={`h-3.5 w-3.5 ${syncing ? 'animate-spin text-[#5b8def]' : ''}`} />
+            </button>
+          </div>
+
+          {syncMsg && (
+            <p className="text-[10px] text-slate-300 font-mono truncate bg-[#151b2e] px-2 py-1 rounded border border-slate-800">
+              {syncMsg}
+            </p>
+          )}
         </div>
       </aside>
     </>
