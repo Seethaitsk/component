@@ -13,19 +13,94 @@ import ContactForm from './ContactForm';
 import Footer from './Footer';
 import OddsCard from './OddsCard';
 import Badge from './Badge';
+import Avatar from './Avatar';
 
 export default function ComponentRenderer({
   componentId,
   previewMode = 'react',
   isThumbnail = false,
   dark = false,
+  dynamicProps = null,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
 
+  // Dynamic Playground Mode: when custom props are actively being manipulated
+  if (dynamicProps && Object.keys(dynamicProps).length > 0 && !isThumbnail && previewMode === 'react') {
+    switch (componentId) {
+      case 'primary-button':
+        return (
+          <div className="flex items-center justify-center p-8">
+            <PrimaryButton {...dynamicProps}>
+              {dynamicProps.children || 'Button Action'}
+            </PrimaryButton>
+          </div>
+        );
+      case 'badge':
+        return (
+          <div className="flex items-center justify-center p-8">
+            <Badge {...dynamicProps}>
+              {dynamicProps.children || 'Active Badge'}
+            </Badge>
+          </div>
+        );
+      case 'avatar':
+        return (
+          <div className="flex items-center justify-center p-8">
+            <Avatar {...dynamicProps}>
+              {dynamicProps.children}
+            </Avatar>
+          </div>
+        );
+      case 'input-field':
+        return (
+          <div className="w-full max-w-sm mx-auto p-6">
+            <InputField {...dynamicProps} />
+          </div>
+        );
+      case 'alert':
+        return (
+          <div className="w-full max-w-md mx-auto p-6">
+            <Alert {...dynamicProps}>
+              {dynamicProps.children || 'This is an alert message.'}
+            </Alert>
+          </div>
+        );
+      case 'card':
+        return (
+          <div className="w-full max-w-sm mx-auto p-6">
+            <Card {...dynamicProps}>
+              {dynamicProps.children || 'Accelerate multi-region database replication with zero downtime.'}
+            </Card>
+          </div>
+        );
+      case 'navbar':
+        return (
+          <div className="w-full shadow-sm rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <Navbar {...dynamicProps} />
+          </div>
+        );
+      case 'footer':
+        return (
+          <div className="w-full rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <Footer {...dynamicProps} />
+          </div>
+        );
+      default:
+        break;
+    }
+  }
+
   // Compact, non-nested thumbnail previews for cards
   if (isThumbnail) {
     switch (componentId) {
+      case 'avatar':
+        return (
+          <div className="flex items-center justify-center p-2">
+            <Avatar>Avatar</Avatar>
+          </div>
+        );
+
       case 'badge':
         return <Badge>Badge</Badge>;
 
@@ -189,6 +264,13 @@ export default function ComponentRenderer({
 
   // Full Interactive React + Tailwind Mode (used on Component Detail Page)
   switch (componentId) {
+    case 'avatar':
+      return (
+        <div className="flex items-center justify-center p-6">
+          <Avatar>Interactive Avatar</Avatar>
+        </div>
+      );
+
     case 'badge':
       return (
         <div className="flex items-center justify-center p-6">

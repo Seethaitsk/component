@@ -112,7 +112,11 @@ async function ComponentDetailContent({ params }) {
             Interactive canvas with viewport & theme toggles
           </span>
         </div>
-        <ComponentPreview componentId={component.id} componentName={component.name} />
+        <ComponentPreview
+          componentId={component.id}
+          componentName={component.name}
+          schemaProps={component.props || []}
+        />
       </section>
 
       {/* Section 2: Code Snippets (React, HTML+CSS, Bootstrap) */}

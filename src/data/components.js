@@ -660,4 +660,38 @@ export default function Example() {
       bootstrap: `<div class="badge bg-primary p-2">Badge Action</div>`,
     },
   },
+  {
+    id: 'avatar',
+    name: 'Avatar',
+    category: 'cards',
+    description: "User profile photo indicator with initials fallback and presence dot.",
+    tags: ["avatar","profile","user","image","status"],
+    tech: ["React","Tailwind","Bootstrap"],
+    status: 'stable',
+    dateAdded: '2026-11-12',
+    projectsUsedIn: ["Customer Portal"],
+    usageNotes: [
+      "Import directly from @/components/library/Avatar",
+      "Ensure accessible labels and keyboard focus states are implemented"
+],
+    props: [
+      {
+            "name": "initials",
+            "type": "string",
+            "default": "''",
+            "description": "Fallback 2-letter initials."
+      },
+      {
+            "name": "status",
+            "type": "'online' \\| 'busy' \\| 'offline'",
+            "default": "'online'",
+            "description": "Presence status dot color."
+      }
+],
+    code: {
+      react: "<Avatar initials=\"SC\" status=\"online\" />",
+      htmlCss: "<div class=\"relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700 border border-slate-200\">\n  SC\n  <span class=\"absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white\"></span>\n</div>",
+      bootstrap: "<div class=\"position-relative d-inline-block\">\n  <div class=\"rounded-circle bg-light border d-flex align-items-center justify-content-center fw-bold\" style=\"width: 40px; height: 40px;\">SC</div>\n  <span class=\"position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle\"></span>\n</div>",
+    },
+  },
 ];

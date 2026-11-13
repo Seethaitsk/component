@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle } from 'lucide-react';
+import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
 import CategoryCard from '@/components/portal/CategoryCard';
@@ -143,6 +143,104 @@ export default function HomePage() {
           {recentComponents.map((comp) => (
             <ComponentCard key={comp.id} component={comp} />
           ))}
+        </div>
+      </section>
+
+      {/* Developer Resources & Tools */}
+      <section className="space-y-6">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            Frontend Engineering Tools
+          </h2>
+          <p className="text-xs text-slate-500">
+            Productivity tools, design tokens, and live roadmaps to accelerate development.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            href="/tokens"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-[#1a5cdd] border border-blue-200 group-hover:scale-105 transition-transform">
+                <Palette className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Design Tokens
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                SysCorp brand colors, typography scales, box shadows, and border radii with 1-click copy.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>View Tokens</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+
+          <Link
+            href="/tracker"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 group-hover:scale-105 transition-transform">
+                <Kanban className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Roadmap Tracker
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Live release progress, component status board, and ownership tracker synced with repository.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>View Roadmap</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+
+          <Link
+            href="/icons"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-200 group-hover:scale-105 transition-transform">
+                <Sparkles className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Icon Explorer
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Searchable catalog of Lucide icons with custom sizing, brand colors, and instant JSX copy.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>Browse Icons</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+
+          <Link
+            href="/new"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600 border border-purple-200 group-hover:scale-105 transition-transform">
+                <PlusCircle className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Component Studio
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Create and register new components directly from the browser with automatic file scaffolding.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>Launch Studio</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
         </div>
       </section>
 

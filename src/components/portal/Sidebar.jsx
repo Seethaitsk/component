@@ -17,6 +17,9 @@ import {
   Home,
   Search,
   PlusCircle,
+  Kanban,
+  Palette,
+  Sparkles,
   Code2,
   X,
 } from 'lucide-react';
@@ -93,6 +96,45 @@ export default function Sidebar({ open, onClose }) {
               >
                 <Home className="h-4 w-4" />
                 <span>Portal Home</span>
+              </Link>
+
+              <Link
+                href="/tracker"
+                onClick={onClose}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/tracker'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <Kanban className="h-4 w-4 text-[#5b8def]" />
+                <span>Roadmap Tracker</span>
+              </Link>
+
+              <Link
+                href="/tokens"
+                onClick={onClose}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/tokens'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <Palette className="h-4 w-4 text-[#5b8def]" />
+                <span>Design Tokens</span>
+              </Link>
+
+              <Link
+                href="/icons"
+                onClick={onClose}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/icons'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <Sparkles className="h-4 w-4 text-[#5b8def]" />
+                <span>Icon Explorer</span>
               </Link>
 
               <Link
