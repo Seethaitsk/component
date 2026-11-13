@@ -27,6 +27,8 @@ import {
 } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
+import { sectionsData } from '@/data/sectionsData';
+import { templatesData } from '@/data/templatesData';
 
 const iconMap = {
   MousePointerClick,
@@ -130,6 +132,42 @@ export default function Sidebar({ open, onClose }) {
               >
                 <Home className="h-4 w-4" />
                 <span>Portal Home</span>
+              </Link>
+
+              <Link
+                href="/sections"
+                onClick={onClose}
+                className={`flex items-center justify-between rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/sections'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <LayoutTemplate className="h-4 w-4 text-[#5b8def]" />
+                  <span>Sections</span>
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-blue-500/20 text-[#5b8def]">
+                  {sectionsData.length}
+                </span>
+              </Link>
+
+              <Link
+                href="/templates"
+                onClick={onClose}
+                className={`flex items-center justify-between rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/templates'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <AppWindow className="h-4 w-4 text-[#5b8def]" />
+                  <span>Templates</span>
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-blue-500/20 text-[#5b8def]">
+                  {templatesData.length}
+                </span>
               </Link>
 
               <Link

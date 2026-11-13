@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal } from 'lucide-react';
+import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal, LayoutTemplate, AppWindow } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
+import { sectionsData } from '@/data/sectionsData';
+import { templatesData } from '@/data/templatesData';
 import CategoryCard from '@/components/portal/CategoryCard';
 import ComponentCard from '@/components/portal/ComponentCard';
 
@@ -69,19 +71,19 @@ export default function HomePage() {
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#1a5cdd]">
               {componentsData.length}
             </div>
-            <div className="text-xs text-slate-500">Total Components</div>
+            <div className="text-xs text-slate-500">Atomic Components</div>
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#1a5cdd]">
-              {categories.length}
+              {sectionsData.length}
             </div>
-            <div className="text-xs text-slate-500">UI Categories</div>
+            <div className="text-xs text-slate-500">Modular Sections</div>
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#1a5cdd]">
-              3
+              {templatesData.length}
             </div>
-            <div className="text-xs text-slate-500">Tech Stacks (React, TW, BS5)</div>
+            <div className="text-xs text-slate-500">Full Page Templates</div>
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-600">
@@ -157,13 +159,55 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link
+            href="/sections"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-[#1a5cdd] border border-blue-200 group-hover:scale-105 transition-transform">
+                <LayoutTemplate className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Page Sections
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Heroes, feature grids, pricing tables, and CTA banners with live responsive previews and one-click JSX copy.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>Explore Sections ({sectionsData.length})</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+
+          <Link
+            href="/templates"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200 group-hover:scale-105 transition-transform">
+                <AppWindow className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Full Page Templates
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Complete pre-assembled SaaS landing pages, dashboards, auth screens, and support hubs with dependency lists.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>View Templates ({templatesData.length})</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+
           <Link
             href="/tokens"
             className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
           >
             <div className="space-y-2">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-[#1a5cdd] border border-blue-200 group-hover:scale-105 transition-transform">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600 border border-purple-200 group-hover:scale-105 transition-transform">
                 <Palette className="h-5 w-5" />
               </span>
               <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
@@ -226,7 +270,7 @@ export default function HomePage() {
             className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
           >
             <div className="space-y-2">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600 border border-purple-200 group-hover:scale-105 transition-transform">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-rose-50 text-rose-600 border border-rose-200 group-hover:scale-105 transition-transform">
                 <PlusCircle className="h-5 w-5" />
               </span>
               <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">

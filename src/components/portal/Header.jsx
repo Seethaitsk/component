@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Search, Compass, Code2, Menu, X, Sparkles, Plus, Palette, Kanban } from 'lucide-react';
+import { Search, Compass, Code2, Menu, X, Sparkles, Plus, Palette, Kanban, LayoutTemplate, AppWindow } from 'lucide-react';
 
 export default function Header({ onMobileMenuToggle }) {
   const [query, setQuery] = useState('');
@@ -71,6 +71,20 @@ export default function Header({ onMobileMenuToggle }) {
 
         {/* Right: Quick Links */}
         <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href="/sections"
+            className="hidden xl:flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-[#1a5cdd] transition-colors"
+          >
+            <LayoutTemplate className="h-3.5 w-3.5 text-slate-500" />
+            <span>Sections</span>
+          </Link>
+          <Link
+            href="/templates"
+            className="hidden xl:flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-[#1a5cdd] transition-colors"
+          >
+            <AppWindow className="h-3.5 w-3.5 text-slate-500" />
+            <span>Templates</span>
+          </Link>
           <Link
             href="/tokens"
             className="hidden lg:flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-[#1a5cdd] transition-colors"
