@@ -28,6 +28,20 @@ export default function AgentPage() {
   const [saving, setSaving] = useState(false);
   const [saveSuccessMsg, setSaveSuccessMsg] = useState('');
   const [copiedTab, setCopiedTab] = useState(null);
+  const [apiKey, setApiKey] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('syscorp_gemini_key') || '';
+    }
+    return '';
+  });
+  const [showKeyModal, setShowKeyModal] = useState(false);
+
+  const handleSaveApiKey = (key) => {
+    setApiKey(key);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('syscorp_gemini_key', key.trim());
+    }
+  };
 
   // Inspector tab: 'preview' | 'react' | 'bootstrap' | 'props' | 'audit'
   const [activeInspectorTab, setActiveInspectorTab] = useState('preview');
@@ -107,8 +121,10 @@ export default function MetricKpiCard({
   });
 
   const starterPrompts = [
-    'Live sports betting odds multiplier pill with neon green active state',
+    'Create WhatsApp click-to-chat button with SVG icon',
+    'Social brand icons bar (WhatsApp, GitHub, X, LinkedIn)',
     'Enterprise KPI telemetry card with trend delta badge',
+    'Live sports betting odds multiplier pill with neon green active state',
     'SaaS waitlist hero banner with email capture form',
     'Dismissible alert toast with auto-dismiss countdown',
   ];
@@ -137,6 +153,7 @@ export default function MetricKpiCard({
           mode,
           currentCode: generatedComponent?.componentCode || '',
           componentName: generatedComponent?.name || '',
+          clientApiKey: apiKey.trim(),
         }),
       });
 
@@ -244,13 +261,52 @@ export default function MetricKpiCard({
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowKeyModal(!showKeyModal)}
+            className="inline-flex items-center gap-1.5 rounded-full bg-white border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700 hover:border-[#1a5cdd] hover:text-[#1a5cdd] transition-colors cursor-pointer shadow-xs"
+          >
+            <Sparkles className="h-3 w-3 text-[#1a5cdd]" />
+            <span>{apiKey ? 'Gemini API Key Linked' : 'Connect Gemini API (Optional)'}</span>
+          </button>
+
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-emerald-700 font-mono">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
             Agent Engine Ready
           </span>
         </div>
       </div>
+
+      {/* Optional Gemini API Key Drawer */}
+      {showKeyModal && (
+        <div className="rounded-2xl border border-blue-200 bg-blue-50/60 p-4 space-y-2">
+          <div className="flex items-center justify-between">
+            <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+              <Sparkles className="h-3.5 w-3.5 text-[#1a5cdd]" />
+              <span>Custom Gemini API Key</span>
+            </h4>
+            <span className="text-[11px] text-slate-500">Stored locally in your browser</span>
+          </div>
+          <p className="text-[11px] text-slate-600">
+            The built-in agent engine handles all core components out-of-the-box. If you want unrestricted natural language generation for any prompt, paste your Google AI Studio API key here:
+          </p>
+          <div className="flex items-center gap-2 max-w-md pt-1">
+            <input
+              type="password"
+              value={apiKey}
+              onChange={(e) => handleSaveApiKey(e.target.value)}
+              placeholder="AIzaSy..."
+              className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-900 outline-none focus:border-[#1a5cdd]"
+            />
+            <button
+              onClick={() => setShowKeyModal(false)}
+              className="rounded-xl bg-[#1a5cdd] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#1449b2]"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Main Studio Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
