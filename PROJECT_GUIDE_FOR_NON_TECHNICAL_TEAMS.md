@@ -165,6 +165,17 @@ This portal solves that problem. It gives everyone—designers, project managers
 
 ---
 
+### Page 12: Project Team Hub (`/team`)
+- **Purpose**: The cross-functional collaboration headquarters for the whole project.
+- **What You See**:
+  - **Team Directory**: Profiles of key engineers, product designers, and accessibility specialists with which components they maintain.
+  - **Third-Party Integrations**: Real-time status cards for connected tools (GitHub, Figma Workspace, Slack Webhooks, NPM package, and Vercel hosting).
+  - **Component Request Board**: An active queue of newly requested features with priorities (High/Medium/Low) and target delivery dates.
+  - **Engineering Standards**: Clear checklists for accessibility (WCAG AA), code quality, and reviews.
+- **What You Can Do**: See who maintains each part, check third-party connections, or submit a new component request directly to the engineering queue.
+
+---
+
 ## 5. How It Works (Simple User Journeys)
 
 ### Journey 1: Finding and Using an Existing Part
@@ -318,3 +329,4 @@ Look at the bottom of the left sidebar. There is a small status showing our curr
 
 *Document prepared by Technical Writing & Systems Architecture Team.*  
 *SysCorp UI Components Portal · Version 2.4 · November 2026*
+

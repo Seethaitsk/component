@@ -25,6 +25,7 @@ import {
   GitBranch,
   RefreshCw,
   Bot,
+  Users,
 } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
@@ -151,6 +152,24 @@ export default function Sidebar({ open, onClose }) {
                 </div>
                 <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono">
                   AI
+                </span>
+              </Link>
+
+              <Link
+                href="/team"
+                onClick={onClose}
+                className={`flex items-center justify-between rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  pathname === '/team'
+                    ? 'bg-[#1a5cdd] text-white shadow-xs font-semibold'
+                    : 'text-slate-300 hover:bg-[#151b2e] hover:text-white'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Users className="h-4 w-4 text-[#5b8def]" />
+                  <span>Team Hub</span>
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-blue-500/20 text-[#5b8def]">
+                  5
                 </span>
               </Link>
 

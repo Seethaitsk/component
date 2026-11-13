@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal, LayoutTemplate, AppWindow, Bot } from 'lucide-react';
+import { Search, Sparkles, Code2, ArrowRight, Layers, CheckCircle2, PlusCircle, Palette, Kanban, SlidersHorizontal, LayoutTemplate, AppWindow, Bot, Users } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { componentsData } from '@/data/components';
 import { sectionsData } from '@/data/sectionsData';
@@ -183,6 +183,26 @@ export default function HomePage() {
             </div>
             <span className="text-xs font-semibold text-emerald-700 inline-flex items-center gap-1 group-hover:underline">
               <span>Launch AI Agent</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+          <Link
+            href="/team"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-[#1a5cdd] hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-[#1a5cdd] border border-blue-200 group-hover:scale-105 transition-transform">
+                <Users className="h-5 w-5" />
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a5cdd] transition-colors">
+                Project Team Hub
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Team directory, component ownership, third-party integrations (Figma, GitHub, Slack), and request backlog.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#1a5cdd] inline-flex items-center gap-1 group-hover:underline">
+              <span>Open Team Hub</span>
               <ArrowRight className="h-3 w-3" />
             </span>
           </Link>
